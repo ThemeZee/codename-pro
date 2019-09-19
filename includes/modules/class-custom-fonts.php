@@ -29,8 +29,9 @@ class Codename_Pro_Custom_Fonts {
 			return;
 		}
 
-		// Include Font List Control Files.
+		// Include Customizer Control Files.
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/customizer/class-customize-font-control.php';
+		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/customizer/class-customize-gt-plugin-control.php';
 
 		// Add Custom Fonts CSS code to custom stylesheet output.
 		add_filter( 'codename_pro_custom_css_stylesheet', array( __CLASS__, 'get_custom_fonts_css' ) );
@@ -238,7 +239,7 @@ class Codename_Pro_Custom_Fonts {
 		) );
 
 		$wp_customize->add_control( 'codename_theme_options[title_is_bold]', array(
-			'label'    => esc_html_x( 'Bold', 'Font Setting', 'codename' ),
+			'label'    => esc_html_x( 'Bold', 'Font Setting', 'codename-pro' ),
 			'section'  => 'codename_pro_section_typography',
 			'settings' => 'codename_theme_options[title_is_bold]',
 			'type'     => 'checkbox',
@@ -254,7 +255,7 @@ class Codename_Pro_Custom_Fonts {
 		) );
 
 		$wp_customize->add_control( 'codename_theme_options[title_is_uppercase]', array(
-			'label'    => esc_html_x( 'Uppercase', 'Font Setting', 'codename' ),
+			'label'    => esc_html_x( 'Uppercase', 'Font Setting', 'codename-pro' ),
 			'section'  => 'codename_pro_section_typography',
 			'settings' => 'codename_theme_options[title_is_uppercase]',
 			'type'     => 'checkbox',
@@ -287,7 +288,7 @@ class Codename_Pro_Custom_Fonts {
 		) );
 
 		$wp_customize->add_control( 'codename_theme_options[navi_is_bold]', array(
-			'label'    => esc_html_x( 'Bold', 'Font Setting', 'codename' ),
+			'label'    => esc_html_x( 'Bold', 'Font Setting', 'codename-pro' ),
 			'section'  => 'codename_pro_section_typography',
 			'settings' => 'codename_theme_options[navi_is_bold]',
 			'type'     => 'checkbox',
@@ -303,11 +304,44 @@ class Codename_Pro_Custom_Fonts {
 		) );
 
 		$wp_customize->add_control( 'codename_theme_options[navi_is_uppercase]', array(
-			'label'    => esc_html_x( 'Uppercase', 'Font Setting', 'codename' ),
+			'label'    => esc_html_x( 'Uppercase', 'Font Setting', 'codename-pro' ),
 			'section'  => 'codename_pro_section_typography',
 			'settings' => 'codename_theme_options[navi_is_uppercase]',
 			'type'     => 'checkbox',
 			'priority' => 70,
+		) );
+
+		// Add GT Local Fonts control.
+		if ( ! class_exists( 'GermanThemes_Local_Fonts' ) ) {
+			$wp_customize->add_control( new Codename_Pro_Customize_GT_Plugin_Control(
+				$wp_customize, 'gt_local_fonts_plugin', array(
+					'label'       => esc_html__( 'More Local Fonts', 'codename-pro' ),
+					'description' => esc_html__( 'You can install the GT Local Fonts plugin to extend the typography options with additional local GDPR-compatible fonts.', 'codename-pro' ),
+					'section'     => 'codename_pro_section_typography',
+					'settings'    => array(),
+					'priority'    => 80,
+				)
+			) );
+		}
+	}
+
+	/**
+	 * Register support for GT Typography plugin.
+	 */
+	static function add_typography_theme_support() {
+
+		// Get theme options from database.
+		$theme_options = Codename_Pro_Customizer::get_theme_options();
+
+		// Get selected fonts.
+		$selected_fonts = array(
+			$theme_options['text_font'],
+			$theme_options['title_font'],
+			$theme_options['navi_font'],
+		);
+
+		add_theme_support( 'gt-typography', array(
+			'selected_fonts' => $selected_fonts,
 		) );
 	}
 
@@ -332,6 +366,9 @@ class Codename_Pro_Custom_Fonts {
 			'Times New Roman, Times'      => 'Times New Roman',
 			'Verdana'                     => 'Verdana',
 		);
+
+		// Allow GT Local Font plugin to add fonts.
+		$fonts = apply_filters( 'gt_typography_fonts', $fonts );
 
 		// Get Theme Options from Database.
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
@@ -1079,21 +1116,13 @@ class Codename_Pro_Custom_Fonts {
 		// Get Theme Options from Database.
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
-		// Get Default Fonts from settings.
-		$default_options = Codename_Pro_Customizer::get_default_options();
+		// Get Local Fonts.
+		$local_fonts = self::get_local_fonts();
 
-		// Remove default theme fonts from Google fonts.
-		if ( isset( $default_options['text_font'] ) and array_key_exists( $default_options['text_font'], $fonts ) ) :
-			unset( $fonts[ trim( $default_options['text_font'] ) ] );
-		endif;
-
-		if ( isset( $default_options['title_font'] ) and array_key_exists( $default_options['title_font'], $fonts ) ) :
-			unset( $fonts[ trim( $default_options['title_font'] ) ] );
-		endif;
-
-		if ( isset( $default_options['navi_font'] ) and array_key_exists( $default_options['navi_font'], $fonts ) ) :
-			unset( $fonts[ trim( $default_options['navi_font'] ) ] );
-		endif;
+		// Remove local fonts from Google fonts.
+		foreach ( $local_fonts as $font_key => $font_val ) {
+			unset( $fonts[ $font_key ] );
+		}
 
 		// Sort fonts alphabetically.
 		asort( $fonts );
@@ -1104,3 +1133,4 @@ class Codename_Pro_Custom_Fonts {
 
 // Run Class.
 add_action( 'init', array( 'Codename_Pro_Custom_Fonts', 'setup' ) );
+add_action( 'after_setup_theme', array( 'Codename_Pro_Custom_Fonts', 'add_typography_theme_support' ) );
