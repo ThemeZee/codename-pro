@@ -1,0 +1,56 @@
+/*
+ * Customizer CSS
+ *
+ * Adjusts styling for theme option controls in the Customizer
+ *
+ * @package Codename Pro
+ */
+
+#customize-control-codename_theme_options-header_text,
+#customize-control-codename_theme_options-header_search_title,
+#customize-control-codename_theme_options-scroll_top_title {
+	margin-top: 16px;
+}
+
+#customize-control-codename_theme_options-header_date_title,
+#customize-control-codename_theme_options-header_search_title,
+#customize-control-codename_theme_options-footer_content_title,
+#customize-control-codename_theme_options-footer_text,
+#customize-control-codename_theme_options-scroll_top_title {
+	margin-bottom: 0;
+}
+
+#customize-control-codename_theme_options-header_text textarea,
+#customize-control-codename_theme_options-footer_text textarea {
+	height: 4em;
+}
+
+/* Custom Font Control */
+.customize-control-codename_pro_custom_font {
+	margin-bottom: 24px;
+}
+
+.customize-control-codename_pro_custom_font .actions,
+.customize-control-codename_pro_custom_font_list .actions {
+	margin-top: 8px;
+}
+
+.customize-control-codename_pro_custom_font .actions .button.previous {
+	margin-right: 4px;
+}
+
+.customize-control-codename_pro_custom_font .actions .button.standard {
+	float: right;
+}
+
+.customize-control-codename_pro_custom_font select {
+	width: 100%;
+}
+
+.customize-control-codename_pro_custom_font div:hover {
+	cursor: default;
+}
+
+.customize-control-codename_pro_custom_font .actions .button:hover {
+	cursor: pointer;
+}
