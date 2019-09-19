@@ -4,22 +4,23 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
+    "export": "git archive HEAD -9 --prefix codename-pro/ --format=zip > ../../codename-pro.zip",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://ThemeZee@bitbucket.org/ThemeZee/codename-pro.git"
+    "url": "git+https://github.com/ThemeZee/codename-pro.git"
   },
   "author": "Thomas Weichselbaumer <contact@themezee.com> (https://themezee.com)",
-  "license": "ISC",
-  "homepage": "https://bitbucket.org/ThemeZee/codename-pro#readme",
+  "license": "GPL",
+  "homepage": "https://github.com/ThemeZee/codename-pro.git#readme",
   "devDependencies": {
-    "autoprefixer": "^6.5.2",
-    "gulp": "^3.9.1",
-    "gulp-postcss": "^6.2.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-rtlcss": "^1.0.0",
-    "gulp-uglify": "^2.0.0",
-    "postcss-sorting": "^1.7.0"
+    "autoprefixer": "^9.6.1",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-rtlcss": "^1.4.0",
+    "gulp-uglify": "^3.0.2",
+    "postcss-sorting": "^5.0.1"
   }
 }
