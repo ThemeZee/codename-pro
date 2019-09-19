@@ -12,7 +12,7 @@ License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Codename Pro
-Copyright(C) 2018, ThemeZee.com - support@themezee.com
+Copyright(C) 2019, ThemeZee.com - support@themezee.com
 */
 
 // Exit if accessed directly.
@@ -126,6 +126,9 @@ class Codename_Pro {
 		// Enqueue Codename Pro Stylesheet.
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_styles' ), 11 );
 
+		// Add Custom CSS code to the Gutenberg editor.
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'enqueue_editor_styles' ), 11 );
+
 		// Add Settings link to Plugin actions.
 		add_filter( 'plugin_action_links_' . plugin_basename( CODENAME_PRO_PLUGIN_FILE ), array( __CLASS__, 'plugin_action_links' ) );
 
@@ -163,6 +166,31 @@ class Codename_Pro {
 
 		// Enqueue Custom CSS.
 		wp_add_inline_style( 'codename-pro', $custom_css );
+	}
+
+	/**
+	 * Enqueue Editor Styles
+	 *
+	 * @return void
+	 */
+	static function enqueue_editor_styles() {
+
+		// Return early if Codename Theme is not active.
+		if ( ! current_theme_supports( 'codename-pro' ) ) {
+			return;
+		}
+
+		// Get Custom CSS.
+		$custom_css = apply_filters( 'codename_pro_custom_css_stylesheet', '' );
+
+		// Sanitize CSS Code.
+		$custom_css = wp_kses( $custom_css, array( '\'', '\"' ) );
+		$custom_css = str_replace( '&gt;', '>', $custom_css );
+		$custom_css = preg_replace( '/\n/', '', $custom_css );
+		$custom_css = preg_replace( '/\t/', '', $custom_css );
+
+		// Enqueue Custom CSS.
+		wp_add_inline_style( 'codename-editor-styles', $custom_css );
 	}
 
 	/**

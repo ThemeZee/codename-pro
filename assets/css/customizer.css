@@ -27,12 +27,11 @@
 
 /* Custom Font Control */
 .customize-control-codename_pro_custom_font {
-	margin-bottom: 24px;
+	margin-top: 24px;
 }
 
-.customize-control-codename_pro_custom_font .actions,
-.customize-control-codename_pro_custom_font_list .actions {
-	margin-top: 8px;
+#customize-control-text_font {
+	margin-top: 0;
 }
 
 .customize-control-codename_pro_custom_font .actions .button.previous {
@@ -53,4 +52,43 @@
 
 .customize-control-codename_pro_custom_font .actions .button:hover {
 	cursor: pointer;
+}
+
+/* Typography Checkbox Controls */
+#sub-accordion-section-codename_pro_section_typography .customize-control-checkbox {
+	margin-bottom: 0;
+}
+
+/* License Control */
+.customize-control-codename_license_key label {
+	margin-top: 16px;
+}
+
+.customize-control-codename_license_key .license-status span {
+	display: inline-block;
+	margin: 0 0 12px;
+	padding: 5px 10px;
+	color: #fff;
+	background: #777;
+	font-size: 13px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.customize-control-codename_license_key .license-status .inactive {
+	background: #444;
+}
+
+.customize-control-codename_license_key .license-status .valid {
+	background: green;
+}
+
+.customize-control-codename_license_key .license-status .invalid,
+.customize-control-codename_license_key .license-status .expired {
+	background: red;
+}
+
+/* Plugin Control Styling */
+#customize-control-gt_local_fonts_plugin {
+	margin-top: 24px;
 }

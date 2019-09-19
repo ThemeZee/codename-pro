@@ -198,7 +198,7 @@ class Codename_Pro_Custom_Colors {
 
 		// Add Section for Theme Colors.
 		$wp_customize->add_section( 'codename_pro_section_colors', array(
-			'title'    => esc_html__( 'Color Settings', 'codename-pro' ),
+			'title'    => esc_html__( 'Color Settings (PRO)', 'codename-pro' ),
 			'priority' => 60,
 			'panel'    => 'codename_options_panel',
 		) );

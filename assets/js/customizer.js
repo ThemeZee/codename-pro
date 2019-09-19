@@ -221,6 +221,22 @@
 		} );
 	} );
 
+	/* Title Font Weight */
+	wp.customize( 'codename_theme_options[title_is_bold]', function( value ) {
+		value.bind( function( newval ) {
+			var fontWeight = newval ? 'bold' : 'normal';
+			document.documentElement.style.setProperty( '--title-font-weight', fontWeight );
+		} );
+	} );
+
+	/* Title Text Transform */
+	wp.customize( 'codename_theme_options[title_is_uppercase]', function( value ) {
+		value.bind( function( newval ) {
+			var textTransform = newval ? 'uppercase' : 'none';
+			document.documentElement.style.setProperty( '--title-text-transform', textTransform );
+		} );
+	} );
+
 	wp.customize( 'codename_theme_options[navi_font]', function( value ) {
 		value.bind( function( newval ) {
 
@@ -244,26 +260,19 @@
 		} );
 	} );
 
-	wp.customize( 'codename_theme_options[widget_title_font]', function( value ) {
+	/* Navi Font Weight */
+	wp.customize( 'codename_theme_options[navi_is_bold]', function( value ) {
 		value.bind( function( newval ) {
+			var fontWeight = newval ? 'bold' : 'normal';
+			document.documentElement.style.setProperty( '--navi-font-weight', fontWeight );
+		} );
+	} );
 
-			// Embed Font.
-			var fontFamilyUrl = newval.split( " " ).join( "+" );
-			var googleFontPath = "https://fonts.googleapis.com/css?family=" + fontFamilyUrl + ":400,700";
-			var googleFontSource = "<link id='codename-pro-custom-widget-title-font' href='" + googleFontPath + "' rel='stylesheet' type='text/css'>";
-			var checkLink = $( "head" ).find( "#codename-pro-custom-widget-title-font" ).length;
-
-			if (checkLink > 0) {
-				$( "head" ).find( "#codename-pro-custom-widget-title-font" ).remove();
-			}
-			$( "head" ).append( googleFontSource );
-
-			// Set Font.
-			var systemFont = '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif';
-			var newFont = newval === 'SystemFontStack' ? systemFont : newval;
-
-			// Set CSS.
-			document.documentElement.style.setProperty( '--widget-title-font', newFont );
+	/* Navi Text Transform */
+	wp.customize( 'codename_theme_options[navi_is_uppercase]', function( value ) {
+		value.bind( function( newval ) {
+			var textTransform = newval ? 'uppercase' : 'none';
+			document.documentElement.style.setProperty( '--navi-text-transform', textTransform );
 		} );
 	} );
 

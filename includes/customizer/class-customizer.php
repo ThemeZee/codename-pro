@@ -75,10 +75,13 @@ class Codename_Pro_Customizer {
 			'title_color'        => '#202020',
 			'widget_title_color' => '#202020',
 			'footer_color'       => '#202020',
-			'text_font'          => 'Raleway',
-			'title_font'         => 'Quicksand',
-			'navi_font'          => 'Quicksand',
-			'widget_title_font'  => 'Quicksand',
+			'text_font'          => 'SystemFontStack',
+			'title_font'         => 'SystemFontStack',
+			'title_is_bold'      => true,
+			'title_is_uppercase' => false,
+			'navi_font'          => 'SystemFontStack',
+			'navi_is_bold'       => false,
+			'navi_is_uppercase'  => false,
 		);
 
 		return $default_options;

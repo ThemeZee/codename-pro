@@ -61,7 +61,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 			);
 
 			// Set Fonts.
-			$this->local_fonts = Codename_Pro_Custom_Fonts::get_local_fonts();
+			$this->local_fonts  = Codename_Pro_Custom_Fonts::get_local_fonts();
 			$this->google_fonts = Codename_Pro_Custom_Fonts::get_google_fonts();
 
 			parent::__construct( $manager, $id, $args );
@@ -73,10 +73,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		 * @return void
 		 */
 		public function enqueue() {
-
 			// Register and Enqueue Custom Font JS Constructor.
 			wp_enqueue_script( 'codename-pro-custom-font-control', CODENAME_PRO_PLUGIN_URL . 'assets/js/custom-font-control.js', array( 'customize-controls' ), CODENAME_PRO_VERSION, true );
-
 		}
 
 		/**
@@ -85,11 +83,10 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		 * @return void
 		 */
 		public function render_content() {
-
 			$l10n = json_encode( $this->l10n );
 
 			if ( ! empty( $this->local_fonts ) && ! empty( $this->google_fonts ) ) :
-			?>
+				?>
 
 				<label>
 					<span class="customize-control-title" data-l10n="<?php echo esc_attr( $l10n ); ?>" data-font="<?php echo esc_attr( $this->setting->default ); ?>">
@@ -97,7 +94,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 					</span>
 					<div class="customize-font-select-control">
 						<select <?php $this->link(); ?>>
-							<optgroup label="<?php esc_html_e( 'Local Fonts', 'codename-pro' ); ?>">
+							<optgroup label="<?php esc_html_e( 'Local Fonts (GDPR)', 'codename-pro' ); ?>">
 								<?php
 								foreach ( $this->local_fonts as $k => $v ) :
 									printf( '<option value="%s" %s>%s</option>', $k, selected( $this->value(), $k, false ), $v );
@@ -106,7 +103,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 							</optgroup>
 
 							<optgroup label="<?php esc_html_e( 'Google Web Fonts', 'codename-pro' ); ?>">
-	  							<?php
+								<?php
 								foreach ( $this->google_fonts as $k => $v ) :
 									printf( '<option value="%s" %s>%s</option>', $k, selected( $this->value(), $k, false ), $v );
 								endforeach;
@@ -117,7 +114,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 					<div class="actions"></div>
 				</label>
 
-			<?php
+				<?php
 			endif;
 		}
 	}
