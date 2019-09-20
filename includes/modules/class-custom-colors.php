@@ -1,8 +1,8 @@
 <?php
 /**
- * Custom Colors
+ * Theme Colors
  *
- * Adds color settings to Customizer and generates color CSS code
+ * Adds theme color settings to Customizer and generates color CSS code
  *
  * @package Codename Pro
  */
@@ -13,12 +13,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Custom Colors Class
+ * Theme Colors Class
  */
-class Codename_Pro_Custom_Colors {
+class Codename_Pro_Theme_Colors {
 
 	/**
-	 * Custom Colors Setup
+	 * Theme Colors Setup
 	 *
 	 * @return void
 	 */
@@ -31,9 +31,6 @@ class Codename_Pro_Custom_Colors {
 
 		// Add Custom Color CSS code to custom stylesheet output.
 		add_filter( 'codename_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
-
-		// Add Custom Color CSS code to the Gutenberg editor.
-		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'custom_editor_colors_css' ) );
 
 		// Add Custom Color Settings.
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
@@ -56,52 +53,41 @@ class Codename_Pro_Custom_Colors {
 		// Color Variables.
 		$color_variables = '';
 
+		// Set Page Background Color.
+		if ( $theme_options['page_background_color'] !== $default_options['page_background_color'] ) {
+			$color_variables .= '--page-background-color: ' . $theme_options['page_background_color'] . ';';
+
+			// Check if a dark background color was chosen.
+			if ( self::is_color_dark( $theme_options['page_background_color'] ) ) {
+				$color_variables .= '--text-color: rgba(255, 255, 255, 0.9);';
+				$color_variables .= '--medium-text-color: rgba(255, 255, 255, 0.7);';
+				$color_variables .= '--light-text-color: rgba(255, 255, 255, 0.5);';
+				$color_variables .= '--page-border-color: rgba(255, 255, 255, 0.1);';
+				$color_variables .= '--page-light-bg-color: rgba(255, 255, 255, 0.05);';
+			}
+		}
+
 		// Set Link Color.
 		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
 			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
+			$color_variables .= '--button-color: ' . $theme_options['link_color'] . ';';
 		}
 
-		// Set Button Color.
-		if ( $theme_options['button_color'] !== $default_options['button_color'] ) {
-			$color_variables .= '--button-color: ' . $theme_options['button_color'] . ';';
-
-			// Check if a light background color was chosen.
-			if ( self::is_color_light( $theme_options['button_color'] ) ) {
-				$color_variables .= '--button-text-color: #202020;';
-			}
+		// Set Link Hover Color.
+		if ( $theme_options['link_hover_color'] !== $default_options['link_hover_color'] ) {
+			$color_variables .= '--link-hover-color: ' . $theme_options['link_hover_color'] . ';';
+			$color_variables .= '--button-hover-color: ' . $theme_options['link_hover_color'] . ';';
 		}
 
-		// Set Button Hover Color.
-		if ( $theme_options['button_hover_color'] !== $default_options['button_hover_color'] ) {
-			$color_variables .= '--button-hover-color: ' . $theme_options['button_hover_color'] . ';';
+		// Set Header Color.
+		if ( $theme_options['header_color'] !== $default_options['header_color'] ) {
+			$color_variables .= '--header-background-color: ' . $theme_options['header_color'] . ';';
 
 			// Check if a light background color was chosen.
-			if ( self::is_color_light( $theme_options['button_hover_color'] ) ) {
-				$color_variables .= '--button-hover-text-color: #202020;';
-			}
-		}
-
-		// Set Navi Color.
-		if ( $theme_options['navi_color'] !== $default_options['navi_color'] ) {
-			$color_variables .= '--navi-color: ' . $theme_options['navi_color'] . ';';
-
-			// Check if a light background color was chosen.
-			if ( self::is_color_light( $theme_options['navi_color'] ) ) {
-				$color_variables .= '--navi-text-color: #202020;';
-				$color_variables .= '--navi-hover-text-color: rgba(0, 0, 0, 0.5);';
-				$color_variables .= '--navi-border-color: rgba(0, 0, 0, 0.075);';
-			}
-		}
-
-		// Set Submenu Color.
-		if ( $theme_options['navi_submenu_color'] !== $default_options['navi_submenu_color'] ) {
-			$color_variables .= '--submenu-color: ' . $theme_options['navi_submenu_color'] . ';';
-
-			// Check if a light background color was chosen.
-			if ( self::is_color_light( $theme_options['navi_submenu_color'] ) ) {
-				$color_variables .= '--submenu-text-color: #202020;';
-				$color_variables .= '--submenu-hover-text-color: rgba(0, 0, 0, 0.5);';
-				$color_variables .= '--submenu-border-color: rgba(0, 0, 0, 0.1);';
+			if ( self::is_color_light( $theme_options['header_color'] ) ) {
+				$color_variables .= '--header-text-color: rgba(0, 0, 0, 0.95);';
+				$color_variables .= '--header-text-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--header-border-color: rgba(0, 0, 0, 0.1);';
 			}
 		}
 
@@ -110,20 +96,20 @@ class Codename_Pro_Custom_Colors {
 			$color_variables .= '--title-color: ' . $theme_options['title_color'] . ';';
 		}
 
-		// Set Widget Title Color.
-		if ( $theme_options['widget_title_color'] !== $default_options['widget_title_color'] ) {
-			$color_variables .= '--widget-title-color: ' . $theme_options['widget_title_color'] . ';';
+		// Set Title Hover Color.
+		if ( $theme_options['title_hover_color'] !== $default_options['title_hover_color'] ) {
+			$color_variables .= '--title-hover-color: ' . $theme_options['title_hover_color'] . ';';
 		}
 
 		// Set Footer Color.
 		if ( $theme_options['footer_color'] !== $default_options['footer_color'] ) {
-			$color_variables .= '--footer-color: ' . $theme_options['footer_color'] . ';';
+			$color_variables .= '--footer-background-color: ' . $theme_options['footer_color'] . ';';
 
 			// Check if a light background color was chosen.
 			if ( self::is_color_light( $theme_options['footer_color'] ) ) {
-				$color_variables .= '--footer-text-color: #202020;';
-				$color_variables .= '--footer-hover-text-color: rgba(0, 0, 0, 0.5);';
-				$color_variables .= '--footer-border-color: rgba(0, 0, 0, 0.05);';
+				$color_variables .= '--footer-text-color: #242424;';
+				$color_variables .= '--footer-link-color: rgba(0, 0, 0, 0.6);';
+				$color_variables .= '--footer-link-hover-color: #242424;';
 			}
 		}
 
@@ -136,60 +122,6 @@ class Codename_Pro_Custom_Colors {
 	}
 
 	/**
-	 * Adds Color CSS styles in the Gutenberg Editor to override default colors
-	 *
-	 * @return void
-	 */
-	static function custom_editor_colors_css() {
-
-		// Get Theme Options from Database.
-		$theme_options = Codename_Pro_Customizer::get_theme_options();
-
-		// Get Default Fonts from settings.
-		$default_options = Codename_Pro_Customizer::get_default_options();
-
-		// Color Variables.
-		$color_variables = '';
-
-		// Set Link Color.
-		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
-			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
-		}
-
-		// Set Title Color.
-		if ( $theme_options['title_color'] !== $default_options['title_color'] ) {
-			$color_variables .= '--title-color: ' . $theme_options['title_color'] . ';';
-		}
-
-		// Set Color Variables.
-		if ( '' !== $color_variables ) {
-			$custom_css = ':root {' . $color_variables . '}';
-			wp_add_inline_style( 'codename-editor-styles', $custom_css );
-		}
-	}
-
-	/**
-	 * Change primary color in Gutenberg Editor.
-	 *
-	 * @return array $editor_settings
-	 */
-	static function change_primary_color( $color ) {
-
-		// Get Theme Options from Database.
-		$theme_options = Codename_Pro_Customizer::get_theme_options();
-
-		// Get Default Fonts from settings.
-		$default_options = Codename_Pro_Customizer::get_default_options();
-
-		// Set Primary Color.
-		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
-			$color = $theme_options['link_color'];
-		}
-
-		return $color;
-	}
-
-	/**
 	 * Adds all color settings in the Customizer
 	 *
 	 * @param object $wp_customize / Customizer Object.
@@ -197,14 +129,30 @@ class Codename_Pro_Custom_Colors {
 	static function color_settings( $wp_customize ) {
 
 		// Add Section for Theme Colors.
-		$wp_customize->add_section( 'codename_pro_section_colors', array(
-			'title'    => esc_html__( 'Color Settings (PRO)', 'codename-pro' ),
+		$wp_customize->add_section( 'codename_pro_section_theme_colors', array(
+			'title'    => esc_html__( 'Theme Colors', 'codename-pro' ),
 			'priority' => 60,
 			'panel'    => 'codename_options_panel',
 		) );
 
 		// Get Default Colors from settings.
 		$default_options = Codename_Pro_Customizer::get_default_options();
+
+		// Add Page Background Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[page_background_color]', array(
+			'default'           => $default_options['page_background_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'codename_theme_options[page_background_color]', array(
+				'label'    => esc_html_x( 'Page Background', 'Color Option', 'codename' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[page_background_color]',
+				'priority' => 5,
+			)
+		) );
 
 		// Add Link Color setting.
 		$wp_customize->add_setting( 'codename_theme_options[link_color]', array(
@@ -215,78 +163,46 @@ class Codename_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'codename_theme_options[link_color]', array(
-				'label'    => esc_html_x( 'Links', 'color setting', 'codename-pro' ),
-				'section'  => 'codename_pro_section_colors',
+				'label'    => esc_html_x( 'Links', 'Color Option', 'codename' ),
+				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[link_color]',
 				'priority' => 10,
 			)
 		) );
 
-		// Add Button Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[button_color]', array(
-			'default'           => $default_options['button_color'],
+		// Add Link Hover Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[link_hover_color]', array(
+			'default'           => $default_options['link_hover_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[button_color]', array(
-				'label'    => esc_html_x( 'Buttons', 'color setting', 'codename-pro' ),
-				'section'  => 'codename_pro_section_colors',
-				'settings' => 'codename_theme_options[button_color]',
+			$wp_customize, 'codename_theme_options[link_hover_color]', array(
+				'label'    => esc_html_x( 'Link Hover', 'Color Option', 'codename' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[link_hover_color]',
 				'priority' => 20,
 			)
 		) );
 
-		// Add Button Hover Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[button_hover_color]', array(
-			'default'           => $default_options['button_hover_color'],
+		// Add Header Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[header_color]', array(
+			'default'           => $default_options['header_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[button_hover_color]', array(
-				'label'    => esc_html_x( 'Buttons Hover', 'color setting', 'codename-pro' ),
-				'section'  => 'codename_pro_section_colors',
-				'settings' => 'codename_theme_options[button_hover_color]',
+			$wp_customize, 'codename_theme_options[header_color]', array(
+				'label'    => esc_html_x( 'Header', 'Color Option', 'codename' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[header_color]',
 				'priority' => 30,
 			)
 		) );
 
-		// Add Navigation Primary Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[navi_color]', array(
-			'default'           => $default_options['navi_color'],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[navi_color]', array(
-				'label'    => esc_html_x( 'Main Navigation', 'color setting', 'codename-pro' ),
-				'section'  => 'codename_pro_section_colors',
-				'settings' => 'codename_theme_options[navi_color]',
-				'priority' => 40,
-			)
-		) );
-
-		// Add Navigation Secondary Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[navi_submenu_color]', array(
-			'default'           => $default_options['navi_submenu_color'],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[navi_submenu_color]', array(
-				'label'    => esc_html_x( 'Sub Menus', 'color setting', 'codename-pro' ),
-				'section'  => 'codename_pro_section_colors',
-				'settings' => 'codename_theme_options[navi_submenu_color]',
-				'priority' => 50,
-			)
-		) );
-
-		// Add Title Color setting.
+		// Add Titles Color setting.
 		$wp_customize->add_setting( 'codename_theme_options[title_color]', array(
 			'default'           => $default_options['title_color'],
 			'type'              => 'option',
@@ -295,26 +211,26 @@ class Codename_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'codename_theme_options[title_color]', array(
-				'label'    => esc_html_x( 'Titles', 'color setting', 'codename-pro' ),
-				'section'  => 'codename_pro_section_colors',
+				'label'    => esc_html_x( 'Titles', 'Color Option', 'codename' ),
+				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[title_color]',
-				'priority' => 60,
+				'priority' => 40,
 			)
 		) );
 
-		// Add Widget Title Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[widget_title_color]', array(
-			'default'           => $default_options['widget_title_color'],
+		// Add Title Hover Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[title_hover_color]', array(
+			'default'           => $default_options['title_hover_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[widget_title_color]', array(
-				'label'    => esc_html_x( 'Widget Titles', 'color setting', 'codename-pro' ),
-				'section'  => 'codename_pro_section_colors',
-				'settings' => 'codename_theme_options[widget_title_color]',
-				'priority' => 70,
+			$wp_customize, 'codename_theme_options[title_hover_color]', array(
+				'label'    => esc_html_x( 'Title Hover', 'Color Option', 'codename' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[title_hover_color]',
+				'priority' => 50,
 			)
 		) );
 
@@ -327,10 +243,10 @@ class Codename_Pro_Custom_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'codename_theme_options[footer_color]', array(
-				'label'    => esc_html_x( 'Footer', 'color setting', 'codename-pro' ),
-				'section'  => 'codename_pro_section_colors',
+				'label'    => esc_html_x( 'Footer Widgets', 'Color Option', 'codename' ),
+				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[footer_color]',
-				'priority' => 80,
+				'priority' => 60,
 			)
 		) );
 	}
@@ -373,5 +289,4 @@ class Codename_Pro_Custom_Colors {
 }
 
 // Run Class.
-add_action( 'init', array( 'Codename_Pro_Custom_Colors', 'setup' ) );
-add_filter( 'codename_primary_color', array( 'Codename_Pro_Custom_Colors', 'change_primary_color' ) );
+add_action( 'init', array( 'Codename_Pro_Theme_Colors', 'setup' ) );

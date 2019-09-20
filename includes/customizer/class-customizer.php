@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Customizer Class
@@ -50,7 +52,6 @@ class Codename_Pro_Customizer {
 
 	}
 
-
 	/**
 	 * Returns the default settings of the plugin
 	 *
@@ -59,29 +60,35 @@ class Codename_Pro_Customizer {
 	static function get_default_options() {
 
 		$default_options = array(
-			'header_text'        => '',
-			'header_date'        => false,
-			'header_search'      => false,
-			'author_bio'         => false,
-			'footer_content'     => false,
-			'footer_text'        => '',
-			'credit_link'        => true,
-			'scroll_to_top'      => false,
-			'link_color'         => '#ee1133',
-			'button_color'       => '#ee1133',
-			'button_hover_color' => '#D5001A',
-			'navi_color'         => '#202020',
-			'navi_submenu_color' => '#ee1133',
-			'title_color'        => '#202020',
-			'widget_title_color' => '#202020',
-			'footer_color'       => '#202020',
-			'text_font'          => 'SystemFontStack',
-			'title_font'         => 'SystemFontStack',
-			'title_is_bold'      => true,
-			'title_is_uppercase' => false,
-			'navi_font'          => 'SystemFontStack',
-			'navi_is_bold'       => false,
-			'navi_is_uppercase'  => false,
+			'header_text'           => '',
+			'header_date'           => false,
+			'header_search'         => false,
+			'author_bio'            => false,
+			'footer_content'        => false,
+			'footer_text'           => '',
+			'credit_link'           => true,
+			'scroll_to_top'         => false,
+			'primary_color'         => '#003344',
+			'secondary_color'       => '#268f97',
+			'accent_color'          => '#c9493b',
+			'highlight_color'       => '#f9d26e',
+			'light_gray_color'      => '#e4e4e4',
+			'gray_color'            => '#848484',
+			'dark_gray_color'       => '#242424',
+			'page_background_color' => '#ffffff',
+			'link_color'            => '#e59f00',
+			'link_hover_color'      => '#c68000',
+			'header_color'          => '#ffffff',
+			'title_color'           => '#202020',
+			'title_hover_color'     => '#e59f00',
+			'footer_color'          => '#202020',
+			'text_font'             => 'SystemFontStack',
+			'title_font'            => 'SystemFontStack',
+			'title_is_bold'         => true,
+			'title_is_uppercase'    => false,
+			'navi_font'             => 'SystemFontStack',
+			'navi_is_bold'          => false,
+			'navi_is_uppercase'     => false,
 		);
 
 		return $default_options;
