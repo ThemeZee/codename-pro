@@ -106,13 +106,14 @@ class Codename_Pro {
 
 		// Include Pro Features.
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-author-bio.php';
-		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-custom-colors.php';
+		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-block-colors.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-custom-fonts.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-footer-line.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-footer-widgets.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-header-bar.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-header-search.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-scroll-to-top.php';
+		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-theme-colors.php';
 	}
 
 	/**

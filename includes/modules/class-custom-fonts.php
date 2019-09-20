@@ -189,7 +189,7 @@ class Codename_Pro_Custom_Fonts {
 		// Add Section for Theme Fonts.
 		$wp_customize->add_section( 'codename_pro_section_typography', array(
 			'title'    => __( 'Typography', 'codename-pro' ),
-			'priority' => 70,
+			'priority' => 120,
 			'panel'    => 'codename_options_panel',
 		) );
 
