@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Scroll to Top Class
@@ -66,7 +68,7 @@ class Codename_Pro_Scroll_To_Top {
 		$wp_customize->add_control( new Codename_Customize_Header_Control(
 			$wp_customize, 'codename_theme_options[scroll_top_title]', array(
 				'label'    => esc_html__( 'Scroll to Top', 'codename-pro' ),
-				'section'  => 'codename_pro_section_footer',
+				'section'  => 'codename_section_footer',
 				'settings' => array(),
 				'priority' => 40,
 			)
@@ -82,7 +84,7 @@ class Codename_Pro_Scroll_To_Top {
 
 		$wp_customize->add_control( 'codename_theme_options[scroll_to_top]', array(
 			'label'    => esc_html__( 'Display Scroll to Top Button', 'codename-pro' ),
-			'section'  => 'codename_pro_section_footer',
+			'section'  => 'codename_section_footer',
 			'settings' => 'codename_theme_options[scroll_to_top]',
 			'type'     => 'checkbox',
 			'priority' => 50,

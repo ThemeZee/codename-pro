@@ -20,7 +20,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
 /**
  * Main Codename_Pro Class
  *
@@ -108,7 +107,7 @@ class Codename_Pro {
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-author-bio.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-block-colors.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-custom-fonts.php';
-		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-footer-line.php';
+		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-footer-menu.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-footer-widgets.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-header-bar.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-header-search.php';
