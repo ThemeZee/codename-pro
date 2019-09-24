@@ -95,10 +95,9 @@ class Codename_Pro {
 	static function includes() {
 
 		// Include Admin Classes.
+		//require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-admin-notices.php';
+		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-license-key.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-plugin-updater.php';
-		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-settings.php';
-		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-settings-page.php';
-		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-admin-notices.php';
 
 		// Include Customizer Classes.
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/customizer/class-customizer.php';
@@ -214,16 +213,15 @@ class Codename_Pro {
 	 * @return void
 	 */
 	static function plugin_updater() {
-		$options = Codename_Pro_Settings::instance();
+		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
-		if ( $options->get( 'license_key' ) <> '' ) :
-
-			$license_key = trim( $options->get( 'license_key' ) );
+		// Check if license key was entered.
+		if ( '' !== $theme_options['license_key'] ) :
 
 			// Setup the updater.
 			$codename_pro_updater = new Codename_Pro_Plugin_Updater( CODENAME_PRO_STORE_API_URL, __FILE__, array(
 				'version'   => CODENAME_PRO_VERSION,
-				'license'   => $license_key,
+				'license'   => trim( $theme_options['license_key'] ),
 				'item_name' => CODENAME_PRO_NAME,
 				'item_id'   => CODENAME_PRO_PRODUCT_ID,
 				'author'    => 'ThemeZee',

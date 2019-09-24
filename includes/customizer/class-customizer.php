@@ -49,7 +49,6 @@ class Codename_Pro_Customizer {
 
 		// Return theme options.
 		return $theme_options;
-
 	}
 
 	/**
@@ -60,6 +59,8 @@ class Codename_Pro_Customizer {
 	static function get_default_options() {
 
 		$default_options = array(
+			'license_key'           => '',
+			'license_status'        => 'inactive',
 			'header_text'           => '',
 			'header_date'           => false,
 			'header_search'         => false,
@@ -85,7 +86,6 @@ class Codename_Pro_Customizer {
 		);
 
 		return $default_options;
-
 	}
 
 	/**
@@ -94,9 +94,7 @@ class Codename_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-
 		wp_enqueue_script( 'codename-pro-customizer-js', CODENAME_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), CODENAME_PRO_VERSION, true );
-
 	}
 
 	/**
@@ -105,9 +103,7 @@ class Codename_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_css() {
-
 		wp_enqueue_style( 'codename-pro-customizer-css', CODENAME_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), CODENAME_PRO_VERSION );
-
 	}
 }
 
