@@ -95,7 +95,7 @@ class Codename_Pro {
 	static function includes() {
 
 		// Include Admin Classes.
-		//require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-admin-notices.php';
+		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-admin-notices.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-license-key.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/admin/class-plugin-updater.php';
 
