@@ -20,11 +20,6 @@
 	margin-bottom: 0;
 }
 
-#customize-control-codename_theme_options-header_text textarea,
-#customize-control-codename_theme_options-footer_text textarea {
-	height: 4em;
-}
-
 /* Custom Font Control */
 .customize-control-codename_pro_custom_font {
 	margin-top: 24px;

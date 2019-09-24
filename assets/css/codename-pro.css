@@ -357,12 +357,8 @@
 }
 
 /*--------------------------------------------------------------
-# Footer Text / Footer Navigation
+# Footer Navigation
 --------------------------------------------------------------*/
-.site-footer .site-info .footer-text {
-	display: block;
-}
-
 .footer-navigation {
 	margin: 1.5rem 0 0;
 }
