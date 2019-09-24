@@ -155,17 +155,8 @@ class Codename_Pro {
 			wp_enqueue_style( 'codename-pro', CODENAME_PRO_PLUGIN_URL . 'assets/css/codename-pro.css', array(), CODENAME_PRO_VERSION );
 		}
 
-		// Get Custom CSS.
-		$custom_css = apply_filters( 'codename_pro_custom_css_stylesheet', '' );
-
-		// Sanitize CSS Code.
-		$custom_css = wp_kses( $custom_css, array( '\'', '\"' ) );
-		$custom_css = str_replace( '&gt;', '>', $custom_css );
-		$custom_css = preg_replace( '/\n/', '', $custom_css );
-		$custom_css = preg_replace( '/\t/', '', $custom_css );
-
 		// Enqueue Custom CSS.
-		wp_add_inline_style( 'codename-pro', $custom_css );
+		wp_add_inline_style( 'codename-pro', self::get_custom_css() );
 	}
 
 	/**
@@ -180,6 +171,17 @@ class Codename_Pro {
 			return;
 		}
 
+		// Enqueue Custom CSS.
+		wp_add_inline_style( 'codename-editor-styles', self::get_custom_css() );
+	}
+
+	/**
+	 * Return custom CSS for color and font variables.
+	 *
+	 * @return void
+	 */
+	static function get_custom_css() {
+
 		// Get Custom CSS.
 		$custom_css = apply_filters( 'codename_pro_custom_css_stylesheet', '' );
 
@@ -189,8 +191,7 @@ class Codename_Pro {
 		$custom_css = preg_replace( '/\n/', '', $custom_css );
 		$custom_css = preg_replace( '/\t/', '', $custom_css );
 
-		// Enqueue Custom CSS.
-		wp_add_inline_style( 'codename-editor-styles', $custom_css );
+		return $custom_css;
 	}
 
 	/**
