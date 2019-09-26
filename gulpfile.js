@@ -2,10 +2,11 @@
 var gulp = require('gulp');
 
 // Include Our Plugins
-var rename       = require( 'gulp-rename' );
-var uglify       = require( 'gulp-uglify' );
-var rtlcss       = require( 'gulp-rtlcss' );
 var autoprefixer = require( 'autoprefixer' );
+var rename       = require( 'gulp-rename' );
+var replace      = require( 'gulp-replace' );
+var uglify       = require( 'gulp-uglify' );
+var sass         = require( 'gulp-sass' );
 var postcss      = require( 'gulp-postcss' );
 var sorting      = require( 'postcss-sorting' );
 
@@ -37,5 +38,21 @@ gulp.task( 'rtlcss', function () {
 		.pipe( gulp.dest( 'assets/css' ) );
 });
 
-// Default Task
-gulp.task( 'default', ['minifyjs', 'cleancss'] );
+// Sass Bundler
+gulp.task( 'sass', function() {
+    return gulp.src( 'sass/style.scss' )
+        .pipe( sass( { outputStyle: 'expanded' } ).on( 'error', sass.logError ) )
+		.pipe( rename( 'assets/css/codename-pro.css' ) )
+		.pipe( postcss( [ sorting() ] ) )
+		.pipe( replace( '  ', '	' ) )
+		.pipe( replace( '}\n	', '}\n\n	' ) )
+		.pipe( replace( '}\n\n	}', '}\n	}' ) )
+		.pipe( replace( '*/\n/*', '*/\n\n/*' ) )
+		.pipe( replace( ';\n	/*', '; /*' ) )
+        .pipe( gulp.dest( './' ) )
+});
+
+// Sass Watch
+gulp.task('sass:watch', function () {
+	gulp.watch( 'sass/**/*.scss', gulp.series('sass'));
+});
