@@ -9,7 +9,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Author Bio Class
@@ -72,7 +74,7 @@ class Codename_Pro_Author_Bio {
 				</div>
 			</div><!-- .author-box -->
 
-		<?php
+			<?php
 		endif;
 	}
 
@@ -96,7 +98,7 @@ class Codename_Pro_Author_Bio {
 			'section'  => 'codename_section_post',
 			'settings' => 'codename_theme_options[author_bio]',
 			'type'     => 'checkbox',
-			'priority' => 65,
+			'priority' => 75,
 		) );
 	}
 

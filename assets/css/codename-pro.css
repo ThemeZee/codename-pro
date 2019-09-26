@@ -239,9 +239,8 @@
 # Author Bio
 --------------------------------------------------------------*/
 .entry-author {
-	margin: 1.5rem 0 0;
-	padding: 1.5rem 0 0;
-	border-top: 2px solid rgba(0,0,0,0.05);
+	margin: 2rem 0 0;
+	padding: 0;
 	text-align: center;
 }
 
@@ -471,6 +470,7 @@
 @media only screen and (min-width: 30em) {
 	.entry-author {
 		display: flex;
+		margin-top: 2rem;
 		text-align: left;
 	}
 
