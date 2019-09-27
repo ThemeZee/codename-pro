@@ -24,19 +24,19 @@
 
 // Color CSS Variable
 @mixin color($colorVar) {
-	color: map-get($themeColors, $colorVar);
+	color: map-get($pluginColors, $colorVar);
 	color: var($colorVar);
 }
 
 // Background CSS Variable
 @mixin background($colorVar) {
-	background-color: map-get($themeColors, $colorVar);
+	background-color: map-get($pluginColors, $colorVar);
 	background-color: var($colorVar);
 }
 
 // Fill Icon CSS Variable
 @mixin fill($colorVar) {
-	fill: map-get($themeColors, $colorVar);
+	fill: map-get($pluginColors, $colorVar);
 	fill: var($colorVar);
 }
 

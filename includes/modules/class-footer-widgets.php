@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Footer Widgets Class
@@ -29,7 +31,6 @@ class Codename_Pro_Footer_Widgets {
 
 		// Display footer widgets.
 		add_action( 'codename_before_footer', array( __CLASS__, 'display_widgets' ), 20 );
-
 	}
 
 	/**
@@ -89,8 +90,8 @@ class Codename_Pro_Footer_Widgets {
 
 			</div>
 
-		<?php endif;
-
+			<?php
+		endif;
 	}
 
 	/**
@@ -107,48 +108,47 @@ class Codename_Pro_Footer_Widgets {
 
 		// Register Footer Column 1 widget area.
 		register_sidebar( array(
-			'name' => esc_html__( 'Footer Column 1', 'codename-pro' ),
-			'id' => 'footer-column-1',
-			'description' => esc_html_x( 'Appears in the first column in footer.', 'widget area description', 'codename-pro' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
-			'after_widget' => '</aside>',
-			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
-			'after_title' => '</h3></div>',
+			'name'          => esc_html__( 'Footer Column 1', 'codename-pro' ),
+			'id'            => 'footer-column-1',
+			'description'   => esc_html_x( 'Appears in the first column in footer.', 'widget area description', 'codename-pro' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
 		) );
 
 		// Register Footer Column 2 widget area.
 		register_sidebar( array(
-			'name' => esc_html__( 'Footer Column 2', 'codename-pro' ),
-			'id' => 'footer-column-2',
-			'description' => esc_html_x( 'Appears in the second column in footer.', 'widget area description', 'codename-pro' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
-			'after_widget' => '</aside>',
-			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
-			'after_title' => '</h3></div>',
+			'name'          => esc_html__( 'Footer Column 2', 'codename-pro' ),
+			'id'            => 'footer-column-2',
+			'description'   => esc_html_x( 'Appears in the second column in footer.', 'widget area description', 'codename-pro' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
 		) );
 
 		// Register Footer Column 3 widget area.
 		register_sidebar( array(
-			'name' => esc_html__( 'Footer Column 3', 'codename-pro' ),
-			'id' => 'footer-column-3',
-			'description' => esc_html_x( 'Appears in the third column in footer.', 'widget area description', 'codename-pro' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
-			'after_widget' => '</aside>',
-			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
-			'after_title' => '</h3></div>',
+			'name'          => esc_html__( 'Footer Column 3', 'codename-pro' ),
+			'id'            => 'footer-column-3',
+			'description'   => esc_html_x( 'Appears in the third column in footer.', 'widget area description', 'codename-pro' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
 		) );
 
 		// Register Footer Column 4 widget area.
 		register_sidebar( array(
-			'name' => esc_html__( 'Footer Column 4', 'codename-pro' ),
-			'id' => 'footer-column-4',
-			'description' => esc_html_x( 'Appears in the fourth column in footer.', 'widget area description', 'codename-pro' ),
-			'before_widget' => '<aside id="%1$s" class="widget %2$s clearfix">',
-			'after_widget' => '</aside>',
-			'before_title' => '<div class="widget-header"><h3 class="widget-title">',
-			'after_title' => '</h3></div>',
+			'name'          => esc_html__( 'Footer Column 4', 'codename-pro' ),
+			'id'            => 'footer-column-4',
+			'description'   => esc_html_x( 'Appears in the fourth column in footer.', 'widget area description', 'codename-pro' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
 		) );
-
 	}
 }
 
