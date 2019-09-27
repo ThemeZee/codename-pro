@@ -34,6 +34,12 @@
 	background-color: var($colorVar);
 }
 
+// Border Color CSS Variable
+@mixin border-color($colorVar) {
+	border-color: map-get($pluginColors, $colorVar);
+	border-color: var($colorVar);
+}
+
 // Fill Icon CSS Variable
 @mixin fill($colorVar) {
 	fill: map-get($pluginColors, $colorVar);

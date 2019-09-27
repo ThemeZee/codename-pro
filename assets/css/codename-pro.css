@@ -530,8 +530,9 @@
 .footer-widgets input[type="search"],
 .footer-widgets input[type="submit"],
 .footer-widgets textarea {
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	border: 1px solid var(--footer-widgets-border-color);
+	border: 1px solid;
+	border-color: rgba(255, 255, 255, 0.1);
+	border-color: var(--footer-widgets-border-color);
 	color: rgba(255, 255, 255, 0.5);
 	color: var(--footer-widgets-link-hover-color);
 }
