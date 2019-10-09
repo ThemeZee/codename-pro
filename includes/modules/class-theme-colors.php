@@ -109,15 +109,29 @@ class Codename_Pro_Theme_Colors {
 			$color_variables .= '--title-hover-color: ' . $theme_options['title_hover_color'] . ';';
 		}
 
-		// Set Footer Color.
+		// Set Footer Widgets Color.
+		if ( $theme_options['footer_widgets_color'] !== $default_options['footer_widgets_color'] ) {
+			$color_variables .= '--footer-widgets-background-color: ' . $theme_options['footer_widgets_color'] . ';';
+
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['footer_widgets_color'] ) ) {
+				$color_variables .= '--footer-widgets-text-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--footer-widgets-link-color: rgba(0, 0, 0, 0.95);';
+				$color_variables .= '--footer-widgets-link-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--footer-widgets-border-color: rgba(0, 0, 0, 0.1);';
+			}
+		}
+
+		// Set Footer Copyright Color.
 		if ( $theme_options['footer_color'] !== $default_options['footer_color'] ) {
 			$color_variables .= '--footer-background-color: ' . $theme_options['footer_color'] . ';';
 
 			// Check if a light background color was chosen.
 			if ( self::is_color_light( $theme_options['footer_color'] ) ) {
-				$color_variables .= '--footer-text-color: #242424;';
-				$color_variables .= '--footer-link-color: rgba(0, 0, 0, 0.6);';
-				$color_variables .= '--footer-link-hover-color: #242424;';
+				$color_variables .= '--footer-text-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--footer-link-color: rgba(0, 0, 0, 0.95);';
+				$color_variables .= '--footer-link-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--footer-border-color: rgba(0, 0, 0, 0.1);';
 			}
 		}
 
@@ -274,7 +288,23 @@ class Codename_Pro_Theme_Colors {
 			)
 		) );
 
-		// Add Footer Color setting.
+		// Add Footer Widgets Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[footer_widgets_color]', array(
+			'default'           => $default_options['footer_widgets_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'codename_theme_options[footer_widgets_color]', array(
+				'label'    => esc_html_x( 'Footer Widgets', 'Color Option', 'codename-pro' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[footer_widgets_color]',
+				'priority' => 100,
+			)
+		) );
+
+		// Add Footer Copyright Color setting.
 		$wp_customize->add_setting( 'codename_theme_options[footer_color]', array(
 			'default'           => $default_options['footer_color'],
 			'type'              => 'option',
@@ -283,7 +313,7 @@ class Codename_Pro_Theme_Colors {
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
 			$wp_customize, 'codename_theme_options[footer_color]', array(
-				'label'    => esc_html_x( 'Footer Widgets', 'Color Option', 'codename-pro' ),
+				'label'    => esc_html_x( 'Footer Copyright', 'Color Option', 'codename-pro' ),
 				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[footer_color]',
 				'priority' => 110,

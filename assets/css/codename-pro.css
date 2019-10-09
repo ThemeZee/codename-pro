@@ -12,7 +12,7 @@
 # - CSS Variables
 --------------------------------------------------------------*/
 :root {
-	--footer-widgets-background-color: #282828;
+	--footer-widgets-background-color: #252525;
 	--footer-widgets-text-color: rgba(255, 255, 255, 0.5);
 	--footer-widgets-link-color: rgba(255, 255, 255, 0.95);
 	--footer-widgets-link-hover-color: rgba(255, 255, 255, 0.5);
@@ -507,7 +507,7 @@
 	padding: 1.5rem 1.5rem 0;
 	color: rgba(255, 255, 255, 0.5);
 	color: var(--footer-widgets-text-color);
-	background-color: #282828;
+	background-color: #252525;
 	background-color: var(--footer-widgets-background-color);
 }
 
@@ -517,7 +517,8 @@
 }
 
 .footer-widgets .widget .widget-title {
-	color: var(--footer-text-color);
+	color: rgba(255, 255, 255, 0.5);
+	color: var(--footer-widgets-text-color);
 	font-weight: normal;
 }
 

@@ -189,23 +189,53 @@
 		} );
 	} );
 
+	/* Footer Widgets Color Option */
+	wp.customize( 'codename_theme_options[footer_widgets_color]', function( value ) {
+		value.bind( function( newval ) {
+			var text_color, link_color, link_hover_color, border_color;
+
+			if( isColorLight( newval ) ) {
+				text_color = 'rgba(0, 0, 0, 0.5)';
+				link_color = 'rgba(0, 0, 0, 0.95)';
+				link_hover_color = 'rgba(0, 0, 0, 0.5)';
+				border_color = 'rgba(0, 0, 0, 0.1)';
+			} else {
+				text_color = 'rgba(255, 255, 255, 0.5)';
+				link_color = 'rgba(255, 255, 255, 0.95)';
+				link_hover_color = 'rgba(255, 255, 255, 0.5)';
+				border_color = 'rgba(255, 255, 255, 0.1)';
+			}
+
+			document.documentElement.style.setProperty( '--footer-widgets-background-color', newval );
+			document.documentElement.style.setProperty( '--footer-widgets-text-color', text_color );
+			document.documentElement.style.setProperty( '--footer-widgets-link-color', link_color );
+			document.documentElement.style.setProperty( '--footer-widgets-link-hover-color', link_hover_color );
+			document.documentElement.style.setProperty( '--footer-widgets-border-color', border_color );
+		} );
+	} );
+
 	/* Footer Color Option */
 	wp.customize( 'codename_theme_options[footer_color]', function( value ) {
 		value.bind( function( newval ) {
-			var text_color, link_color;
+			var text_color, link_color, link_hover_color, border_color;
 
 			if( isColorLight( newval ) ) {
-				text_color = '#242424';
-				link_color = 'rgba(0, 0, 0, 0.6)';
+				text_color = 'rgba(0, 0, 0, 0.5)';
+				link_color = 'rgba(0, 0, 0, 0.95)';
+				link_hover_color = 'rgba(0, 0, 0, 0.5)';
+				border_color = 'rgba(0, 0, 0, 0.1)';
 			} else {
-				text_color = '#ffffff';
-				link_color = 'rgba(255, 255, 255, 0.6)';
+				text_color = 'rgba(255, 255, 255, 0.5)';
+				link_color = 'rgba(255, 255, 255, 0.95)';
+				link_hover_color = 'rgba(255, 255, 255, 0.5)';
+				border_color = 'rgba(255, 255, 255, 0.1)';
 			}
 
 			document.documentElement.style.setProperty( '--footer-background-color', newval );
 			document.documentElement.style.setProperty( '--footer-text-color', text_color );
 			document.documentElement.style.setProperty( '--footer-link-color', link_color );
-			document.documentElement.style.setProperty( '--footer-link-hover-color', text_color );
+			document.documentElement.style.setProperty( '--footer-link-hover-color', link_hover_color );
+			document.documentElement.style.setProperty( '--footer-border-color', border_color );
 		} );
 	} );
 
