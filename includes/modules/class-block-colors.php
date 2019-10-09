@@ -37,6 +37,28 @@ class Codename_Pro_Block_Colors {
 	}
 
 	/**
+	 * Return colors for Gutenberg Editor.
+	 *
+	 * @param array $color_palette Default Color Palette.
+	 * @return array New Color Palette.
+	 */
+	static function block_color_palette( $color_palette ) {
+		// Get Theme Options from Database.
+		$theme_options = Codename_Pro_Customizer::get_theme_options();
+
+		// Override default block color palette.
+		return array(
+			'primary_color'    => sanitize_hex_color( $theme_options['primary_color'] ),
+			'secondary_color'  => sanitize_hex_color( $theme_options['secondary_color'] ),
+			'accent_color'     => sanitize_hex_color( $theme_options['accent_color'] ),
+			'highlight_color'  => sanitize_hex_color( $theme_options['highlight_color'] ),
+			'light_gray_color' => sanitize_hex_color( $theme_options['light_gray_color'] ),
+			'gray_color'       => sanitize_hex_color( $theme_options['gray_color'] ),
+			'dark_gray_color'  => sanitize_hex_color( $theme_options['dark_gray_color'] ),
+		);
+	}
+
+	/**
 	 * Adds Color CSS styles in the head area to override default colors
 	 *
 	 * @param String $custom_css Custom Styling CSS.
@@ -111,8 +133,7 @@ class Codename_Pro_Block_Colors {
 		) );
 
 		// Get Default Colors from settings.
-		//$default_options = Codename_Pro_Customizer::get_default_options();
-		$default_options = codename_default_options();
+		$default_options = Codename_Pro_Customizer::get_default_options();
 
 		// Add Primary Color setting.
 		$wp_customize->add_setting( 'codename_theme_options[primary_color]', array(
@@ -230,3 +251,4 @@ class Codename_Pro_Block_Colors {
 
 // Run Class.
 add_action( 'init', array( 'Codename_Pro_Block_Colors', 'setup' ) );
+add_filter( 'codename_color_palette', array( 'Codename_Pro_Block_Colors', 'block_color_palette' ) );
