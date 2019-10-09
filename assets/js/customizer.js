@@ -98,7 +98,7 @@
 	} );
 
 	/* Page Background Color Option */
-	wp.customize( 'codename_theme_options[page_background_color]', function( value ) {
+	wp.customize( 'codename_theme_options[page_color]', function( value ) {
 		value.bind( function( newval ) {
 			var text_color, medium_text_color, light_text_color, border_color, light_bg_color;
 
@@ -125,22 +125,6 @@
 		} );
 	} );
 
-	/* Link Color Option */
-	wp.customize( 'codename_theme_options[link_color]', function( value ) {
-		value.bind( function( newval ) {
-			document.documentElement.style.setProperty( '--link-color', newval );
-			document.documentElement.style.setProperty( '--button-color', newval );
-		} );
-	} );
-
-	/* Link Color Hover Option */
-	wp.customize( 'codename_theme_options[link_hover_color]', function( value ) {
-		value.bind( function( newval ) {
-			document.documentElement.style.setProperty( '--link-hover-color', newval );
-			document.documentElement.style.setProperty( '--button-hover-color', newval );
-		} );
-	} );
-
 	/* Header Color Option */
 	wp.customize( 'codename_theme_options[header_color]', function( value ) {
 		value.bind( function( newval ) {
@@ -160,6 +144,22 @@
 			document.documentElement.style.setProperty( '--header-text-color', text_color );
 			document.documentElement.style.setProperty( '--header-text-hover-color', hover_color );
 			document.documentElement.style.setProperty( '--header-border-color', border_color );
+		} );
+	} );
+
+	/* Link Color Option */
+	wp.customize( 'codename_theme_options[link_color]', function( value ) {
+		value.bind( function( newval ) {
+			document.documentElement.style.setProperty( '--link-color', newval );
+			document.documentElement.style.setProperty( '--button-color', newval );
+		} );
+	} );
+
+	/* Link Color Hover Option */
+	wp.customize( 'codename_theme_options[link_hover_color]', function( value ) {
+		value.bind( function( newval ) {
+			document.documentElement.style.setProperty( '--link-hover-color', newval );
+			document.documentElement.style.setProperty( '--button-hover-color', newval );
 		} );
 	} );
 

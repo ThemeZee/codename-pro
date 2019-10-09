@@ -54,16 +54,28 @@ class Codename_Pro_Theme_Colors {
 		$color_variables = '';
 
 		// Set Page Background Color.
-		if ( $theme_options['page_background_color'] !== $default_options['page_background_color'] ) {
-			$color_variables .= '--page-background-color: ' . $theme_options['page_background_color'] . ';';
+		if ( $theme_options['page_color'] !== $default_options['page_color'] ) {
+			$color_variables .= '--page-background-color: ' . $theme_options['page_color'] . ';';
 
 			// Check if a dark background color was chosen.
-			if ( self::is_color_dark( $theme_options['page_background_color'] ) ) {
+			if ( self::is_color_dark( $theme_options['page_color'] ) ) {
 				$color_variables .= '--text-color: rgba(255, 255, 255, 0.9);';
 				$color_variables .= '--medium-text-color: rgba(255, 255, 255, 0.7);';
 				$color_variables .= '--light-text-color: rgba(255, 255, 255, 0.5);';
 				$color_variables .= '--page-border-color: rgba(255, 255, 255, 0.1);';
 				$color_variables .= '--page-light-bg-color: rgba(255, 255, 255, 0.05);';
+			}
+		}
+
+		// Set Header Background Color.
+		if ( $theme_options['header_color'] !== $default_options['header_color'] ) {
+			$color_variables .= '--header-background-color: ' . $theme_options['header_color'] . ';';
+
+			// Check if a light background color was chosen.
+			if ( self::is_color_light( $theme_options['header_color'] ) ) {
+				$color_variables .= '--header-text-color: rgba(0, 0, 0, 0.95);';
+				$color_variables .= '--header-text-hover-color: rgba(0, 0, 0, 0.5);';
+				$color_variables .= '--header-border-color: rgba(0, 0, 0, 0.1);';
 			}
 		}
 
@@ -77,18 +89,6 @@ class Codename_Pro_Theme_Colors {
 		if ( $theme_options['link_hover_color'] !== $default_options['link_hover_color'] ) {
 			$color_variables .= '--link-hover-color: ' . $theme_options['link_hover_color'] . ';';
 			$color_variables .= '--button-hover-color: ' . $theme_options['link_hover_color'] . ';';
-		}
-
-		// Set Header Color.
-		if ( $theme_options['header_color'] !== $default_options['header_color'] ) {
-			$color_variables .= '--header-background-color: ' . $theme_options['header_color'] . ';';
-
-			// Check if a light background color was chosen.
-			if ( self::is_color_light( $theme_options['header_color'] ) ) {
-				$color_variables .= '--header-text-color: rgba(0, 0, 0, 0.95);';
-				$color_variables .= '--header-text-hover-color: rgba(0, 0, 0, 0.5);';
-				$color_variables .= '--header-border-color: rgba(0, 0, 0, 0.1);';
-			}
 		}
 
 		// Set Title Color.
@@ -139,18 +139,34 @@ class Codename_Pro_Theme_Colors {
 		$default_options = Codename_Pro_Customizer::get_default_options();
 
 		// Add Page Background Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[page_background_color]', array(
-			'default'           => $default_options['page_background_color'],
+		$wp_customize->add_setting( 'codename_theme_options[page_color]', array(
+			'default'           => $default_options['page_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[page_background_color]', array(
+			$wp_customize, 'codename_theme_options[page_color]', array(
 				'label'    => esc_html_x( 'Page Background', 'Color Option', 'codename-pro' ),
 				'section'  => 'codename_pro_section_theme_colors',
-				'settings' => 'codename_theme_options[page_background_color]',
-				'priority' => 5,
+				'settings' => 'codename_theme_options[page_color]',
+				'priority' => 10,
+			)
+		) );
+
+		// Add Header Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[header_color]', array(
+			'default'           => $default_options['header_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'codename_theme_options[header_color]', array(
+				'label'    => esc_html_x( 'Header Background', 'Color Option', 'codename-pro' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[header_color]',
+				'priority' => 20,
 			)
 		) );
 
@@ -166,7 +182,7 @@ class Codename_Pro_Theme_Colors {
 				'label'    => esc_html_x( 'Links', 'Color Option', 'codename-pro' ),
 				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[link_color]',
-				'priority' => 10,
+				'priority' => 40,
 			)
 		) );
 
@@ -182,23 +198,7 @@ class Codename_Pro_Theme_Colors {
 				'label'    => esc_html_x( 'Link Hover', 'Color Option', 'codename-pro' ),
 				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[link_hover_color]',
-				'priority' => 20,
-			)
-		) );
-
-		// Add Header Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[header_color]', array(
-			'default'           => $default_options['header_color'],
-			'type'              => 'option',
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sanitize_hex_color',
-		) );
-		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[header_color]', array(
-				'label'    => esc_html_x( 'Header', 'Color Option', 'codename-pro' ),
-				'section'  => 'codename_pro_section_theme_colors',
-				'settings' => 'codename_theme_options[header_color]',
-				'priority' => 30,
+				'priority' => 50,
 			)
 		) );
 
@@ -214,7 +214,7 @@ class Codename_Pro_Theme_Colors {
 				'label'    => esc_html_x( 'Titles', 'Color Option', 'codename-pro' ),
 				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[title_color]',
-				'priority' => 40,
+				'priority' => 80,
 			)
 		) );
 
@@ -230,7 +230,7 @@ class Codename_Pro_Theme_Colors {
 				'label'    => esc_html_x( 'Title Hover', 'Color Option', 'codename-pro' ),
 				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[title_hover_color]',
-				'priority' => 50,
+				'priority' => 90,
 			)
 		) );
 
@@ -246,7 +246,7 @@ class Codename_Pro_Theme_Colors {
 				'label'    => esc_html_x( 'Footer Widgets', 'Color Option', 'codename-pro' ),
 				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[footer_color]',
-				'priority' => 60,
+				'priority' => 110,
 			)
 		) );
 	}
