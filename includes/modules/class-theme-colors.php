@@ -78,6 +78,11 @@ class Codename_Pro_Theme_Colors {
 			}
 		}
 
+		// Set Navigation Color.
+		if ( $theme_options['navi_color'] !== $default_options['navi_color'] ) {
+			$color_variables .= '--header-text-hover-color: ' . $theme_options['navi_color'] . ';';
+		}
+
 		// Set Link Color.
 		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
 			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
@@ -188,6 +193,22 @@ class Codename_Pro_Theme_Colors {
 				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[header_color]',
 				'priority' => 20,
+			)
+		) );
+
+		// Add Navigation Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[navi_color]', array(
+			'default'           => $default_options['navi_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'codename_theme_options[navi_color]', array(
+				'label'    => esc_html_x( 'Navigation', 'Color Option', 'codename-pro' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[navi_color]',
+				'priority' => 30,
 			)
 		) );
 

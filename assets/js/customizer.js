@@ -144,6 +144,13 @@
 		} );
 	} );
 
+	/* Navigation Color Option */
+	wp.customize( 'codename_theme_options[navi_color]', function( value ) {
+		value.bind( function( newval ) {
+			document.documentElement.style.setProperty( '--header-text-hover-color', newval );
+		} );
+	} );
+
 	/* Link Color Option */
 	wp.customize( 'codename_theme_options[link_color]', function( value ) {
 		value.bind( function( newval ) {

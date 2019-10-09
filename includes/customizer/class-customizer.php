@@ -78,6 +78,7 @@ class Codename_Pro_Customizer {
 			'dark_gray_color'      => '#242424',
 			'page_color'           => '#ffffff',
 			'header_color'         => '#ffffff',
+			'navi_color'           => '#e36355',
 			'link_color'           => '#c9493b',
 			'link_hover_color'     => '#e36355',
 			'button_color'         => '#c9493b',
