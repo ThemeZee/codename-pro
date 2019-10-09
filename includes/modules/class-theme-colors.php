@@ -71,11 +71,10 @@ class Codename_Pro_Theme_Colors {
 		if ( $theme_options['header_color'] !== $default_options['header_color'] ) {
 			$color_variables .= '--header-background-color: ' . $theme_options['header_color'] . ';';
 
-			// Check if a light background color was chosen.
-			if ( self::is_color_light( $theme_options['header_color'] ) ) {
-				$color_variables .= '--header-text-color: rgba(0, 0, 0, 0.95);';
-				$color_variables .= '--header-text-hover-color: rgba(0, 0, 0, 0.5);';
-				$color_variables .= '--header-border-color: rgba(0, 0, 0, 0.1);';
+			// Check if a dark background color was chosen.
+			if ( self::is_color_dark( $theme_options['header_color'] ) ) {
+				$color_variables .= '--header-text-color: rgba(255, 255, 255, 0.9);';
+				$color_variables .= '--header-border-color: rgba(255, 255, 255, 0.1);';
 			}
 		}
 
