@@ -151,7 +151,6 @@
 	wp.customize( 'codename_theme_options[link_color]', function( value ) {
 		value.bind( function( newval ) {
 			document.documentElement.style.setProperty( '--link-color', newval );
-			document.documentElement.style.setProperty( '--button-color', newval );
 		} );
 	} );
 
@@ -159,6 +158,19 @@
 	wp.customize( 'codename_theme_options[link_hover_color]', function( value ) {
 		value.bind( function( newval ) {
 			document.documentElement.style.setProperty( '--link-hover-color', newval );
+		} );
+	} );
+
+	/* Button Color Option */
+	wp.customize( 'codename_theme_options[button_color]', function( value ) {
+		value.bind( function( newval ) {
+			document.documentElement.style.setProperty( '--button-color', newval );
+		} );
+	} );
+
+	/* Button Color Hover Option */
+	wp.customize( 'codename_theme_options[button_hover_color]', function( value ) {
+		value.bind( function( newval ) {
 			document.documentElement.style.setProperty( '--button-hover-color', newval );
 		} );
 	} );

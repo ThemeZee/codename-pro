@@ -82,13 +82,21 @@ class Codename_Pro_Theme_Colors {
 		// Set Link Color.
 		if ( $theme_options['link_color'] !== $default_options['link_color'] ) {
 			$color_variables .= '--link-color: ' . $theme_options['link_color'] . ';';
-			$color_variables .= '--button-color: ' . $theme_options['link_color'] . ';';
 		}
 
 		// Set Link Hover Color.
 		if ( $theme_options['link_hover_color'] !== $default_options['link_hover_color'] ) {
 			$color_variables .= '--link-hover-color: ' . $theme_options['link_hover_color'] . ';';
-			$color_variables .= '--button-hover-color: ' . $theme_options['link_hover_color'] . ';';
+		}
+
+		// Set Button Color.
+		if ( $theme_options['button_color'] !== $default_options['button_color'] ) {
+			$color_variables .= '--button-color: ' . $theme_options['button_color'] . ';';
+		}
+
+		// Set Button Hover Color.
+		if ( $theme_options['button_hover_color'] !== $default_options['button_hover_color'] ) {
+			$color_variables .= '--button-hover-color: ' . $theme_options['button_hover_color'] . ';';
 		}
 
 		// Set Title Color.
@@ -199,6 +207,38 @@ class Codename_Pro_Theme_Colors {
 				'section'  => 'codename_pro_section_theme_colors',
 				'settings' => 'codename_theme_options[link_hover_color]',
 				'priority' => 50,
+			)
+		) );
+
+		// Add Button Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[button_color]', array(
+			'default'           => $default_options['button_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'codename_theme_options[button_color]', array(
+				'label'    => esc_html_x( 'Buttons', 'Color Option', 'codename-pro' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[button_color]',
+				'priority' => 60,
+			)
+		) );
+
+		// Add Button Hover Color setting.
+		$wp_customize->add_setting( 'codename_theme_options[button_hover_color]', array(
+			'default'           => $default_options['button_hover_color'],
+			'type'              => 'option',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		) );
+		$wp_customize->add_control( new WP_Customize_Color_Control(
+			$wp_customize, 'codename_theme_options[button_hover_color]', array(
+				'label'    => esc_html_x( 'Button Hover', 'Color Option', 'codename-pro' ),
+				'section'  => 'codename_pro_section_theme_colors',
+				'settings' => 'codename_theme_options[button_hover_color]',
+				'priority' => 70,
 			)
 		) );
 
