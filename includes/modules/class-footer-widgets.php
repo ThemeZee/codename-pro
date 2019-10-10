@@ -30,7 +30,7 @@ class Codename_Pro_Footer_Widgets {
 		}
 
 		// Display footer widgets.
-		add_action( 'codename_before_footer', array( __CLASS__, 'display_widgets' ), 20 );
+		add_action( 'codename_before_footer', array( __CLASS__, 'display_widgets' ), 30 );
 	}
 
 	/**
