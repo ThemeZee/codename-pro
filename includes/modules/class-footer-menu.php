@@ -55,7 +55,7 @@ class Codename_Pro_Footer_Menu {
 				'depth'          => 1,
 			) );
 
-			echo '</nav><!-- #footer-links -->';
+			echo '</nav><!-- .footer-navigation -->';
 
 		}
 	}
