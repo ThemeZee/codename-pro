@@ -41,9 +41,9 @@
 	wp.customize( 'codename_theme_options[author_bio]', function( value ) {
 		value.bind( function( newval ) {
 			if ( false === newval ) {
-				hideElement( '.type-post .post-content .entry-author' );
+				$( 'body' ).addClass( 'author-bio-hidden' );
 			} else {
-				showElement( '.type-post .post-content .entry-author' );
+				$( 'body' ).removeClass( 'author-bio-hidden' );
 			}
 		} );
 	} );

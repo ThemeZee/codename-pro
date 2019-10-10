@@ -37,7 +37,7 @@ class Codename_Pro_Author_Bio {
 		add_action( 'customize_register', array( __CLASS__, 'author_bio_settings' ) );
 
 		// Hide Author Bio if disabled.
-		add_filter( 'codename_hide_elements', array( __CLASS__, 'hide_author_bio' ) );
+		add_filter( 'body_class', array( __CLASS__, 'hide_author_bio' ) );
 	}
 
 	/**
@@ -105,20 +105,20 @@ class Codename_Pro_Author_Bio {
 	/**
 	 * Hide Author Bio if deactivated.
 	 *
-	 * @param array $elements / Elements to be hidden.
-	 * @return array $elements
+	 * @param array $classes / Body Classes.
+	 * @return array $classes
 	 */
-	static function hide_author_bio( $elements ) {
+	static function hide_author_bio( $classes ) {
 
 		// Get Theme Options from Database.
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
-		// Hide Author Bio?
-		if ( false === $theme_options['author_bio'] ) {
-			$elements[] = '.type-post .post-content .entry-author';
+		// Hide Author Bio in Customizer for instant live preview.
+		if ( is_customize_preview() && false === $theme_options['author_bio'] ) {
+			$classes[] = 'author-bio-hidden';
 		}
 
-		return $elements;
+		return $classes;
 	}
 }
 

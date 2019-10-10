@@ -69,3 +69,8 @@
 		margin-top: 5rem;
 	}
 }
+
+/* Hide Author Bio in Customizer for instant live preview */
+.author-bio-hidden .type-post .entry-author {
+	display: none;
+}
