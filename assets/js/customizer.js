@@ -351,7 +351,7 @@
 			position: 'absolute',
 			width: '1px',
 			height: '1px',
-			overflow: 'hidden'
+			overflow: 'hidden',
 		});
 	}
 
@@ -361,7 +361,7 @@
 			position: 'relative',
 			width: 'auto',
 			height: 'auto',
-			overflow: 'visible'
+			overflow: 'visible',
 		});
 	}
 

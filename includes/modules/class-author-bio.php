@@ -94,11 +94,11 @@ class Codename_Pro_Author_Bio {
 		) );
 
 		$wp_customize->add_control( 'codename_theme_options[author_bio]', array(
-			'label'    => __( 'Display Author Bio', 'codename-pro' ),
+			'label'    => __( 'Display author bio', 'codename-pro' ),
 			'section'  => 'codename_section_post',
 			'settings' => 'codename_theme_options[author_bio]',
 			'type'     => 'checkbox',
-			'priority' => 75,
+			'priority' => 85,
 		) );
 	}
 
