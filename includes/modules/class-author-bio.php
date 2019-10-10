@@ -55,13 +55,13 @@ class Codename_Pro_Author_Bio {
 
 			<div class="entry-author clearfix">
 				<div class="author-avatar">
-					<?php echo get_avatar( get_the_author_meta( 'user_email' ), 128 ); ?>
+					<?php echo get_avatar( get_the_author_meta( 'user_email' ), 256 ); ?>
 				</div>
 
 				<div class="author-info">
 
 					<div class="author-heading">
-						<h4 class="author-title"><?php printf( esc_html__( 'About %s', 'codename-pro' ), '<span class="author-name">' . get_the_author() . '</span>' ); ?></h4>
+						<h4 class="author-title entry-title"><?php printf( esc_html__( 'About %s', 'codename-pro' ), '<span class="author-name">' . get_the_author() . '</span>' ); ?></h4>
 						<a class="author-link" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>" rel="author">
 							<?php esc_html_e( 'View all posts', 'codename-pro' ); ?>
 						</a>
