@@ -785,10 +785,10 @@
 --------------------------------------------------------------*/
 .scroll-to-top-button {
 	position: fixed;
-	right: 0.75em;
-	bottom: 0.75em;
+	right: 1rem;
+	bottom: 1rem;
 	z-index: 9999;
-	display: inline;
+	display: inline-block;
 	margin: 0 auto;
 	padding: 0;
 	width: 50px;
@@ -799,17 +799,17 @@
 }
 
 .scroll-to-top-button:focus {
-	background: #ee1133;
-	background: var(--button-color);
+	background-color: #c9493b;
+	background-color: var(--button-color);
 }
 
 .scroll-to-top-button:focus:hover {
-	background: #D5001A;
-	background: var(--button-hover-color);
+	background-color: #e36355;
+	background-color: var(--button-hover-color);
 }
 
 .scroll-to-top-button .icon {
-	margin: 0.15em 0 0;
+	margin: 0.2rem 0 0;
 	width: 22px;
 	height: 22px;
 	vertical-align: top;
