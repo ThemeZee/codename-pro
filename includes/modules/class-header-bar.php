@@ -6,7 +6,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Header Bar Class
@@ -26,7 +28,7 @@ class Codename_Pro_Header_Bar {
 		}
 
 		// Display Header Bar.
-		add_action( 'codename_header_bar', array( __CLASS__, 'display_header_bar' ) );
+		add_action( 'codename_before_header', array( __CLASS__, 'display_header_bar' ), 20 );
 
 		// Add Header Settings.
 		add_action( 'customize_register', array( __CLASS__, 'header_settings' ) );
@@ -46,25 +48,29 @@ class Codename_Pro_Header_Bar {
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
 		// Check if there is content for the header bar.
-		if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] ||  has_nav_menu( 'secondary' ) || is_customize_preview() ) : ?>
+		if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] || has_nav_menu( 'secondary' ) || is_customize_preview() ) : ?>
 
 			<div id="header-top" class="header-bar-wrap">
 
 				<div id="header-bar" class="header-bar container clearfix">
 
 					<?php
-					if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] || is_customize_preview() ) : ?>
+					if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] || is_customize_preview() ) :
+						?>
 
 						<div class="header-content">
 
 							<?php
-							if ( false !== $theme_options['header_date'] || is_customize_preview() ) : ?>
+							if ( false !== $theme_options['header_date'] || is_customize_preview() ) :
+								?>
 
 								<span class="header-date"><?php echo date_i18n( get_option( 'date_format' ) ); ?></span>
 
-							<?php endif;
+								<?php
+							endif;
 
-							if ( '' !== $theme_options['header_text'] || is_customize_preview() ) : ?>
+							if ( '' !== $theme_options['header_text'] || is_customize_preview() ) :
+								?>
 
 								<span class="header-text"><?php echo do_shortcode( wp_kses_post( $theme_options['header_text'] ) ); ?></span>
 
@@ -72,34 +78,45 @@ class Codename_Pro_Header_Bar {
 
 						</div>
 
-					<?php
+						<?php
 					endif;
 
 					// Check if there is a top navigation menu.
-					if ( has_nav_menu( 'secondary' ) ) : ?>
+					if ( has_nav_menu( 'secondary' ) ) :
+						?>
 
-						<nav id="top-navigation" class="secondary-navigation navigation clearfix" role="navigation">
-
+						<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false">
 							<?php
-							// Display Top Navigation.
-							wp_nav_menu( array(
-								'theme_location' => 'secondary',
-								'container'      => false,
-								'menu_class'     => 'top-navigation-menu',
-								'echo'           => true,
-								'fallback_cb'    => '',
-							) );
+							echo codename_get_svg( 'menu' );
+							echo codename_get_svg( 'close' );
 							?>
+							<span class="menu-toggle-text"><?php esc_html_e( 'Menu', 'codename-pro' ); ?></span>
+						</button>
 
-						</nav>
+						<div class="secondary-navigation">
 
-					<?php endif; ?>
+							<nav class="top-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', 'codename-pro' ); ?>">
+
+								<?php
+								wp_nav_menu(
+									array(
+										'theme_location' => 'secondary',
+										'menu_id'        => 'secondary-menu',
+										'container'      => false,
+									)
+								);
+								?>
+							</nav><!-- .top-navigation -->
+
+						</div><!-- .secondary-navigation -->
+
+				<?php endif; ?>
 
 				</div>
 
 			</div>
 
-		<?php
+			<?php
 		endif;
 	}
 
