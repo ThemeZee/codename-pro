@@ -87,7 +87,7 @@ class Codename_Pro_Header_Bar {
 
 						<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false">
 							<?php
-							echo codename_get_svg( 'menu' );
+							echo codename_get_svg( 'ellipsis' );
 							echo codename_get_svg( 'close' );
 							?>
 							<span class="menu-toggle-text"><?php esc_html_e( 'Menu', 'codename-pro' ); ?></span>
