@@ -42,7 +42,7 @@ class Codename_Pro_Header_Bar {
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
 		// Check if there is content for the header bar.
-		if ( has_nav_menu( 'secondary' ) || has_nav_menu( 'social-top' ) ) : ?>
+		if ( has_nav_menu( 'secondary' ) || has_nav_menu( 'social-header' ) ) : ?>
 
 			<div id="header-top" class="header-bar-wrap">
 
@@ -50,12 +50,12 @@ class Codename_Pro_Header_Bar {
 
 					<?php
 					// Check if there is a social icons top menu.
-					if ( has_nav_menu( 'social-top' ) ) :
+					if ( has_nav_menu( 'social-header' ) ) :
 						?>
 
-						<div class="top-social-menu-wrap social-menu-wrap">
+						<div class="header-social-menu-wrap social-menu-wrap">
 
-							<?php Codename_Pro_Social_Icons::display_social_icons_menu( 'social-top' ); ?>
+							<?php Codename_Pro_Social_Icons::display_social_icons_menu( 'social-header' ); ?>
 
 						</div>
 

@@ -27,30 +27,8 @@ class Codename_Pro_Social_Icons {
 			return;
 		}
 
-		// Display Social Icons in Header.
-		add_action( 'codename_header_social_menu', array( __CLASS__, 'header_social_icons' ), 20 );
-
 		// Replace menu links with social icons.
 		add_filter( 'walker_nav_menu_start_el', array( __CLASS__, 'social_icons_menu_walker' ), 10, 4 );
-	}
-
-	/**
-	 * Displays social icons menu in header area
-	 *
-	 * @return void
-	 */
-	static function header_social_icons() {
-		// Check if there is a social menu.
-		if ( has_nav_menu( 'social-header' ) ) : ?>
-
-			<div class="header-social-menu-wrap social-menu-wrap">
-
-				<?php self::display_social_icons_menu( 'social-header' ); ?>
-
-			</div>
-
-			<?php
-		endif;
 	}
 
 	/**
@@ -106,7 +84,7 @@ class Codename_Pro_Social_Icons {
 		$social_icons = self::supported_social_icons();
 
 		// Change SVG icon inside social links menu if there is supported URL.
-		if ( 'social-top' === $args->theme_location || 'social-header' === $args->theme_location || 'social-footer' === $args->theme_location ) {
+		if ( 'social-header' === $args->theme_location || 'social-footer' === $args->theme_location ) {
 			$icon = 'star';
 			foreach ( $social_icons as $attr => $value ) {
 				if ( false !== strpos( $item_output, $attr ) ) {
@@ -189,9 +167,8 @@ class Codename_Pro_Social_Icons {
 		}
 
 		register_nav_menus( array(
-			'social-top'    => esc_html__( 'Social Icons (Top Navigation)', 'codename-pro' ),
-			'social-header' => esc_html__( 'Social Icons (Main Navigation)', 'codename-pro' ),
-			'social-footer' => esc_html__( 'Social Icons (Footer Navigation)', 'codename-pro' ),
+			'social-header' => esc_html__( 'Social Icons (Header)', 'codename-pro' ),
+			'social-footer' => esc_html__( 'Social Icons (Footer)', 'codename-pro' ),
 		) );
 
 	}
