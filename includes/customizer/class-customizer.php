@@ -61,13 +61,8 @@ class Codename_Pro_Customizer {
 		$default_options = array(
 			'license_key'          => '',
 			'license_status'       => 'inactive',
-			'header_text'          => '',
-			'header_date'          => false,
 			'header_search'        => false,
 			'author_bio'           => false,
-			'footer_content'       => false,
-			'footer_text'          => '',
-			'credit_link'          => true,
 			'scroll_to_top'        => false,
 			'primary_color'        => '#c9493b',
 			'secondary_color'      => '#e36355',

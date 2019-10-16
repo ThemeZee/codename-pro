@@ -6,16 +6,11 @@
  * @package Codename Pro
  */
 
-#customize-control-codename_theme_options-header_text,
-#customize-control-codename_theme_options-header_search_title,
 #customize-control-codename_theme_options-scroll_top_title {
 	margin-top: 16px;
 }
 
-#customize-control-codename_theme_options-header_date_title,
 #customize-control-codename_theme_options-header_search_title,
-#customize-control-codename_theme_options-footer_content_title,
-#customize-control-codename_theme_options-footer_text,
 #customize-control-codename_theme_options-scroll_top_title {
 	margin-bottom: 0;
 }
@@ -79,12 +74,12 @@
 }
 
 .customize-control-codename_license_key .license-status .valid {
-	background: green;
+	background: #008000;
 }
 
 .customize-control-codename_license_key .license-status .invalid,
 .customize-control-codename_license_key .license-status .expired {
-	background: red;
+	background: #b22222;
 }
 
 /* Plugin Control Styling */
@@ -117,10 +112,10 @@
 }
 
 .customize-control-codename_pro_license_key .license-status .valid {
-	background: green;
+	background: #008000;
 }
 
 .customize-control-codename_pro_license_key .license-status .invalid,
 .customize-control-codename_pro_license_key .license-status .expired {
-	background: red;
+	background: #b22222;
 }
