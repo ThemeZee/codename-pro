@@ -111,6 +111,7 @@ class Codename_Pro {
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-header-bar.php';
 		//require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-header-search.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-scroll-to-top.php';
+		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-social-icons.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-theme-colors.php';
 		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/modules/class-widget-areas.php';
 	}
