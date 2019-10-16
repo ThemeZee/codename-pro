@@ -31,12 +31,20 @@
 }
 
 .header-bar {
+	display: flex;
+	flex-wrap: wrap;
 	padding: 0;
+}
+
+.header-bar .social-menu-wrap {
+	order: 2;
+	margin-left: auto;
 }
 
 .secondary-navigation {
 	position: relative;
 	width: 100%;
+	order: 3;
 }
 
 .top-navigation ul {
@@ -272,9 +280,9 @@
 
 	.secondary-navigation {
 		display: flex;
-		margin-left: auto;
 		width: auto;
 		align-items: center;
+		order: 1;
 	}
 
 	#header-top .top-navigation > ul.menu {
@@ -527,6 +535,20 @@
 	height: 24px;
 	vertical-align: middle;
 	fill: currentColor;
+}
+
+/* Top Social Menu */
+.top-social-menu-wrap {
+	padding-right: 0.5rem;
+}
+
+.top-social-menu-wrap .social-icons-menu li a {
+	padding: 0.65rem;
+}
+
+.top-social-menu-wrap .social-icons-menu li a .icon {
+	width: 20px;
+	height: 20px;
 }
 
 /*--------------------------------------------------------------

@@ -35,3 +35,17 @@
 	vertical-align: middle;
 	fill: currentColor;
 }
+
+/* Top Social Menu */
+.top-social-menu-wrap {
+	padding-right: 0.5rem;
+}
+
+.top-social-menu-wrap .social-icons-menu li a {
+	padding: 0.65rem;
+}
+
+.top-social-menu-wrap .social-icons-menu li a .icon {
+	width: 20px;
+	height: 20px;
+}
