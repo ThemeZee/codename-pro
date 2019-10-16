@@ -28,7 +28,7 @@ class Codename_Pro_Social_Icons {
 		}
 
 		// Display Social Icons in Header.
-		add_action( 'codename_before_header', array( __CLASS__, 'header_social_icons' ), 20 );
+		add_action( 'codename_header_social_menu', array( __CLASS__, 'header_social_icons' ), 20 );
 
 		// Replace menu links with social icons.
 		add_filter( 'walker_nav_menu_start_el', array( __CLASS__, 'social_icons_menu_walker' ), 10, 4 );

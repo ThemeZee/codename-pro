@@ -41,23 +41,45 @@ class Codename_Pro_Footer_Menu {
 	 */
 	static function display_footer_menu() {
 
-		// Check if there is a footer menu.
-		if ( has_nav_menu( 'footer' ) ) {
+		// Check if there is a footer menu or social icons.
+		if ( has_nav_menu( 'footer' ) || has_nav_menu( 'social-footer' ) ) : ?>
 
-			echo '<nav id="footer-links" class="footer-navigation navigation clearfix" role="navigation">';
+			<div class="footer-menus">
 
-			wp_nav_menu( array(
-				'theme_location' => 'footer',
-				'container'      => false,
-				'menu_class'     => 'footer-navigation-menu',
-				'echo'           => true,
-				'fallback_cb'    => '',
-				'depth'          => 1,
-			) );
+			<?php
+			// Check if there is a footer menu.
+			if ( has_nav_menu( 'footer' ) ) {
 
-			echo '</nav><!-- .footer-navigation -->';
+				echo '<nav id="footer-links" class="footer-navigation navigation clearfix" role="navigation">';
 
-		}
+				wp_nav_menu( array(
+					'theme_location' => 'footer',
+					'container'      => false,
+					'menu_class'     => 'footer-navigation-menu',
+					'echo'           => true,
+					'fallback_cb'    => '',
+					'depth'          => 1,
+				) );
+
+				echo '</nav><!-- .footer-navigation -->';
+			}
+
+			// Check if there is a social icons footer menu.
+			if ( has_nav_menu( 'social-footer' ) ) {
+
+				echo '<div class="footer-social-menu-wrap social-menu-wrap">';
+
+				Codename_Pro_Social_Icons::display_social_icons_menu( 'social-footer' );
+
+				echo '</div>';
+
+			}
+			?>
+
+			</div>
+
+			<?php
+		endif;
 	}
 
 	/**
