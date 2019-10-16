@@ -42,7 +42,7 @@ class Codename_Pro_Header_Bar {
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
 		// Check if there is content for the header bar.
-		if ( false !== $theme_options['header_date'] || '' !== $theme_options['header_text'] || has_nav_menu( 'secondary' ) || is_customize_preview() ) : ?>
+		if ( has_nav_menu( 'secondary' ) ) : ?>
 
 			<div id="header-top" class="header-bar-wrap">
 
