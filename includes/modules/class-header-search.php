@@ -8,7 +8,9 @@
  */
 
 // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) { exit; }
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  * Header Search Class
@@ -84,7 +86,7 @@ class Codename_Pro_Header_Search {
 
 			</div>
 
-		<?php
+			<?php
 		endif;
 	}
 
@@ -99,9 +101,9 @@ class Codename_Pro_Header_Search {
 		$wp_customize->add_control( new Codename_Customize_Header_Control(
 			$wp_customize, 'codename_theme_options[header_search_title]', array(
 				'label'    => esc_html__( 'Header Search', 'codename-pro' ),
-				'section'  => 'codename_pro_section_header',
+				'section'  => 'codename_section_layout',
 				'settings' => array(),
-				'priority' => 40,
+				'priority' => 30,
 			)
 		) );
 
@@ -115,10 +117,10 @@ class Codename_Pro_Header_Search {
 
 		$wp_customize->add_control( 'codename_theme_options[header_search]', array(
 			'label'    => esc_html__( 'Enable search field in header', 'codename-pro' ),
-			'section'  => 'codename_pro_section_header',
+			'section'  => 'codename_section_layout',
 			'settings' => 'codename_theme_options[header_search]',
 			'type'     => 'checkbox',
-			'priority' => 50,
+			'priority' => 40,
 		) );
 	}
 
