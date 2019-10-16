@@ -34,16 +34,6 @@
 	padding: 0;
 }
 
-@media only screen and (min-width: 960px) {
-	.header-bar {
-		padding-left: 0.5rem;
-		padding-right: 0.5rem;
-	}
-}
-
-/*--------------------------------------------------------------
-# Top Navigation
---------------------------------------------------------------*/
 .secondary-navigation {
 	position: relative;
 	width: 100%;
@@ -265,6 +255,11 @@
 }
 
 @media only screen and (min-width: 960px) {
+	.header-bar {
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	}
+
 	.secondary-menu-toggle,
 	.top-navigation .dropdown-toggle {
 		display: none;
