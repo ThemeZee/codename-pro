@@ -487,6 +487,49 @@
 }
 
 /*--------------------------------------------------------------
+# Social Icons
+--------------------------------------------------------------*/
+.social-menu-wrap .social-icons-menu {
+	display: flex;
+	flex-flow: row wrap;
+	margin: 0;
+	padding: 0;
+	border: none;
+	list-style: none;
+	justify-content: center;
+}
+
+.social-menu-wrap .social-icons-menu li {
+	margin: 0;
+	padding: 0;
+	border: none;
+	list-style: none;
+}
+
+.social-menu-wrap .social-icons-menu li a {
+	display: block;
+	margin: 0;
+	padding: 0.5rem 0.75rem;
+	color: rgba(0, 0, 0, 0.9);
+	color: var(--header-text-color);
+}
+
+.social-menu-wrap .social-icons-menu li a:hover,
+.social-menu-wrap .social-icons-menu li a:active {
+	color: #e36355;
+	color: var(--header-text-hover-color);
+	text-decoration: none;
+}
+
+.social-menu-wrap .social-icons-menu li a .icon {
+	margin: 0;
+	width: 24px;
+	height: 24px;
+	vertical-align: middle;
+	fill: currentColor;
+}
+
+/*--------------------------------------------------------------
 # Author Bio
 --------------------------------------------------------------*/
 .entry-author {

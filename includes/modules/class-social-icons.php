@@ -43,7 +43,7 @@ class Codename_Pro_Social_Icons {
 		// Check if there is a social menu.
 		if ( has_nav_menu( 'social-header' ) ) : ?>
 
-			<div id="header-social-icons" class="header-social-menu donovan-social-menu clearfix">
+			<div class="header-social-menu-wrap social-menu-wrap">
 
 				<?php self::display_social_icons_menu( 'social-header' ); ?>
 
