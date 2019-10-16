@@ -48,8 +48,8 @@
 	color: rgba(0, 0, 0, 0.9);
 	color: var(--header-text-color);
 	list-style: none;
-	font-size: 17px;
-	font-size: 1.0625rem;
+	font-size: 16px;
+	font-size: 1rem;
 	font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
 	font-family: var(--navi-font);
 	font-weight: normal;
@@ -107,8 +107,8 @@
 
 /* Submenus */
 .top-navigation ul ul {
-	font-size: 16px;
-	font-size: 1rem;
+	font-size: 15px;
+	font-size: 0.9375rem;
 	background-color: #fff;
 	background-color: var(--header-background-color);
 }
@@ -133,14 +133,14 @@
 .secondary-menu-toggle {
 	display: block;
 	margin: 0;
-	padding: 1rem;
+	padding: 0.75rem 1rem;
 	border: none;
 	background: none;
 	color: rgba(0, 0, 0, 0.9);
 	color: var(--header-text-color);
 	text-decoration: none;
-	font-size: 17px;
-	font-size: 1.0625rem;
+	font-size: 16px;
+	font-size: 1rem;
 	font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
 	font-family: var(--navi-font);
 	font-weight: normal;
@@ -171,9 +171,9 @@
 }
 
 .secondary-menu-toggle .icon {
-	margin: 0;
-	width: 28px;
-	height: 28px;
+	margin: 0.2rem 0 0;
+	width: 22px;
+	height: 22px;
 	vertical-align: top;
 	fill: rgba(0, 0, 0, 0.9);
 	fill: var(--header-text-color);
@@ -186,12 +186,12 @@
 	fill: var(--header-text-hover-color);
 }
 
-.toggled-on .secondary-menu-toggle .icon-menu,
-.secondary-menu-toggle .icon-close {
+.secondary-menu-toggle[aria-expanded="true"] .icon-ellipsis,
+.secondary-menu-toggle[aria-expanded="false"] .icon-close {
 	display: none;
 }
 
-.toggled-on .secondary-menu-toggle .icon-close {
+.secondary-menu-toggle[aria-expanded="true"] .icon-close {
 	display: inline-block;
 }
 
@@ -201,7 +201,7 @@
 	display: block;
 	top: 0;
 	right: 0;
-	padding: 1.1rem 1.5rem;
+	padding: 1.05rem 1.5rem;
 	background: none;
 	border: none;
 }
@@ -220,8 +220,8 @@
 
 .top-navigation .dropdown-toggle .icon {
 	margin: 0.35em 0 0;
-	width: 20px;
-	height: 20px;
+	width: 18px;
+	height: 18px;
 	vertical-align: top;
 	fill: rgba(0, 0, 0, 0.9);
 	fill: var(--header-text-color);
@@ -246,14 +246,14 @@
 }
 
 .top-navigation ul ul .dropdown-toggle .icon {
-	width: 18px;
-	height: 18px;
+	width: 17px;
+	height: 17px;
 }
 
 @media only screen and (min-width: 400px) {
 	.secondary-menu-toggle .menu-toggle-text {
 		display: inline-block;
-		margin-left: 0.5rem;
+		margin-left: 0.25rem;
 	}
 }
 

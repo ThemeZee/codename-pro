@@ -8,7 +8,7 @@
 	padding: 0;
 	@include color(--header-text-color);
 	list-style: none;
-	@include font-size(17);
+	@include font-size(16);
 	@include font-family(--navi-font);
 	@include font-weight(--navi-font-weight);
 	@include text-transform(--navi-text-transform);
@@ -60,7 +60,7 @@
 
 /* Submenus */
 .top-navigation ul ul {
-	@include font-size(16);
+	@include font-size(15);
 	@include background(--header-background-color);
 }
 
@@ -84,12 +84,12 @@
 .secondary-menu-toggle {
 	display: block;
 	margin: 0;
-	padding: 1rem;
+	padding: 0.75rem 1rem;
 	border: none;
 	background: none;
 	@include color(--header-text-color);
 	text-decoration: none;
-	@include font-size(17);
+	@include font-size(16);
 	@include font-family(--navi-font);
 	@include font-weight(--navi-font-weight);
 	@include text-transform(--navi-text-transform);
@@ -115,9 +115,9 @@
 }
 
 .secondary-menu-toggle .icon {
-	margin: 0;
-	width: 28px;
-	height: 28px;
+	margin: 0.2rem 0 0;
+	width: 22px;
+	height: 22px;
 	vertical-align: top;
 	@include fill(--header-text-color);
 	transition: fill 0.15s ease;
@@ -128,12 +128,12 @@
 	@include fill(--header-text-hover-color);
 }
 
-.toggled-on .secondary-menu-toggle .icon-menu,
-.secondary-menu-toggle .icon-close {
+.secondary-menu-toggle[aria-expanded="true"] .icon-ellipsis,
+.secondary-menu-toggle[aria-expanded="false"] .icon-close {
 	display: none;
 }
 
-.toggled-on .secondary-menu-toggle .icon-close {
+.secondary-menu-toggle[aria-expanded="true"] .icon-close {
 	display: inline-block;
 }
 
@@ -143,7 +143,7 @@
 	display: block;
 	top: 0;
 	right: 0;
-	padding: 1.1rem 1.5rem;
+	padding: 1.05rem 1.5rem;
 	background: none;
 	border: none;
 }
@@ -161,8 +161,8 @@
 
 .top-navigation .dropdown-toggle .icon {
 	margin: 0.35em 0 0;
-	width: 20px;
-	height: 20px;
+	width: 18px;
+	height: 18px;
 	vertical-align: top;
 	@include fill(--header-text-color);
 	transition: fill 0.15s ease;
@@ -185,14 +185,14 @@
 }
 
 .top-navigation ul ul .dropdown-toggle .icon {
-	width: 18px;
-	height: 18px;
+	width: 17px;
+	height: 17px;
 }
 
 @media only screen and (min-width: 400px) {
 	.secondary-menu-toggle .menu-toggle-text {
 		display: inline-block;
-		margin-left: 0.5rem;
+		margin-left: 0.25rem;
 	}
 }
 
