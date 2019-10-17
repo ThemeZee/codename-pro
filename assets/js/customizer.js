@@ -12,9 +12,9 @@
 	wp.customize( 'codename_theme_options[header_search]', function( value ) {
 		value.bind( function( newval ) {
 			if ( false === newval ) {
-				hideElement( '.primary-navigation-wrap .header-search' );
+				$( 'body' ).addClass( 'header-search-hidden' );
 			} else {
-				showElement( '.primary-navigation-wrap .header-search' );
+				$( 'body' ).removeClass( 'header-search-hidden' );
 			}
 		} );
 	} );
@@ -326,26 +326,6 @@
 			document.documentElement.style.setProperty( '--navi-text-transform', textTransform );
 		} );
 	} );
-
-	function hideElement( element ) {
-		$( element ).css({
-			clip: 'rect(1px, 1px, 1px, 1px)',
-			position: 'absolute',
-			width: '1px',
-			height: '1px',
-			overflow: 'hidden',
-		});
-	}
-
-	function showElement( element ) {
-		$( element ).css({
-			clip: 'auto',
-			position: 'relative',
-			width: 'auto',
-			height: 'auto',
-			overflow: 'visible',
-		});
-	}
 
 	function hexdec( hexString ) {
 		hexString = ( hexString + '' ).replace( /[^a-f0-9]/gi, '' );

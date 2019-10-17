@@ -135,3 +135,9 @@
 		padding: 3rem;
 	}
 }
+
+/* Hide Header Search in Customizer for instant live preview */
+.header-search-hidden .site-header .header-search,
+.header-search-hidden .site > .header-search-dropdown {
+	display: none;
+}

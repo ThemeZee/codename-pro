@@ -42,7 +42,7 @@ class Codename_Pro_Header_Search {
 		add_action( 'customize_register', array( __CLASS__, 'header_search_settings' ) );
 
 		// Hide Header Search if disabled.
-		add_filter( 'codename_hide_elements', array( __CLASS__, 'hide_header_search' ) );
+		add_filter( 'body_class', array( __CLASS__, 'hide_header_search' ) );
 	}
 
 	/**
@@ -155,20 +155,20 @@ class Codename_Pro_Header_Search {
 	/**
 	 * Hide Header Search if deactivated.
 	 *
-	 * @param array $elements / Elements to be hidden.
-	 * @return array $elements
+	 * @param array $classes / Body Classes.
+	 * @return array $classes
 	 */
-	static function hide_header_search( $elements ) {
+	static function hide_header_search( $classes ) {
 
 		// Get Theme Options from Database.
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
-		// Hide Header Search?
-		if ( false === $theme_options['header_search'] ) {
-			$elements[] = '.primary-navigation-wrap .header-search';
+		// Hide Author Bio in Customizer for instant live preview.
+		if ( is_customize_preview() && false === $theme_options['header_search'] ) {
+			$classes[] = 'header-search-hidden';
 		}
 
-		return $elements;
+		return $classes;
 	}
 }
 
