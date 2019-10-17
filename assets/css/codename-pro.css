@@ -410,15 +410,24 @@
 }
 
 .header-main .header-search .header-search-icon {
+	margin: 0;
 	padding: 1rem;
 	color: rgba(0, 0, 0, 0.9);
 	color: var(--header-text-color);
+	background: none;
+	border: none;
 }
 
 .header-main .header-search .header-search-icon:hover, .header-main .header-search .header-search-icon:active {
 	cursor: pointer;
 	color: #e36355;
 	color: var(--header-text-hover-color);
+}
+
+.header-main .header-search .header-search-icon:focus {
+	outline: thin dotted;
+	color: rgba(0, 0, 0, 0.9);
+	color: var(--header-text-color);
 }
 
 .header-main .header-search .header-search-icon .icon-search {

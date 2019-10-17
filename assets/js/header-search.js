@@ -9,7 +9,7 @@
 	$( document ).ready( function() {
 
 		/* Display Search Form when search icon is clicked */
-		$( '#masthead .header-main .header-search a.header-search-icon' ).on( 'click', function() {
+		$( '#masthead .header-main .header-search button.header-search-icon' ).on( 'click', function() {
 			$( '.site .header-search-form' ).toggle().find( '.search-form .search-field' ).focus();
 			$( this ).toggleClass( 'active' );
 		});

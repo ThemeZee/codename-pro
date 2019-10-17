@@ -78,10 +78,10 @@ class Codename_Pro_Header_Search {
 
 			<div class="header-search">
 
-				<a class="header-search-icon">
+				<button class="header-search-icon" aria-controls="header-search" aria-expanded="false">
 					<?php echo codename_get_svg( 'search' ); ?>
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'codename-pro' ); ?></span>
-				</a>
+				</button>
 
 			</div>
 

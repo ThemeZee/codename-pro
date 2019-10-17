@@ -20,13 +20,21 @@
 		@include text-transform(--navi-text-transform);
 
 		.header-search-icon {
+			margin: 0;
 			padding: 1rem;
 			@include color(--header-text-color);
+			background: none;
+			border: none;
 
 			&:hover,
 			&:active {
 				cursor: pointer;
 				@include color(--header-text-hover-color);
+			}
+
+			&:focus {
+				outline: thin dotted;
+				@include color(--header-text-color);
 			}
 
 			.icon-search {
