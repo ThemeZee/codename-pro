@@ -13,7 +13,9 @@
 		value.bind( function( newval ) {
 			if ( false === newval ) {
 				$( 'body' ).addClass( 'header-search-hidden' );
+				$( 'body' ).removeClass( 'header-search-enabled' );
 			} else {
+				$( 'body' ).addClass( 'header-search-enabled' );
 				$( 'body' ).removeClass( 'header-search-hidden' );
 			}
 		} );

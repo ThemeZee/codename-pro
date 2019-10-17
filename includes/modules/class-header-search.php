@@ -163,6 +163,11 @@ class Codename_Pro_Header_Search {
 		// Get Theme Options from Database.
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
+		// Add class if header search is enabled.
+		if ( true === $theme_options['header_search'] ) {
+			$classes[] = 'header-search-enabled';
+		}
+
 		// Hide Author Bio in Customizer for instant live preview.
 		if ( is_customize_preview() && false === $theme_options['header_search'] ) {
 			$classes[] = 'header-search-hidden';
