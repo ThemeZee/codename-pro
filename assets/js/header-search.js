@@ -8,7 +8,12 @@
 
 	$( document ).ready( function() {
 		var searchToggle = $( '#masthead .header-main .header-search button.header-search-icon' );
-		var searchForm = $( '.site .header-search-form' );
+		var searchForm = $( '.site .header-search-dropdown' );
+
+		function closeSearchForm() {
+			searchForm.removeClass( 'active' );
+			searchToggle.attr( 'aria-expanded', searchForm.hasClass( 'active' ) );
+		}
 
 		// Add an initial value for the attribute.
 		searchToggle.attr( 'aria-expanded', 'false' );
@@ -19,6 +24,11 @@
 			$( this ).attr( 'aria-expanded', searchForm.hasClass( 'active' ) );
 		});
 
+		/* Close search form if close button is clicked */
+		searchForm.find( 'header-search-close' ).click( function() {
+			closeSearchForm();
+		});
+
 		/* Do not close search form if click is inside header search element */
 		$('.site').on('click', '.header-search-form, .header-search', function (e) {
 			e.stopPropagation();
@@ -26,15 +36,13 @@
 
 		/* Close search form if click is outside header search element */
 		$( document ).click( function() {
-			searchForm.removeClass( 'active' );
-			searchToggle.attr( 'aria-expanded', searchForm.hasClass( 'active' ) );
+			closeSearchForm();
 		});
 
 		/* Close search form if Escape key is pressed */
 		$( document ).keyup(function(e) {
 			if ( e.which == 27 ) {
-				searchForm.removeClass( 'active' );
-				searchToggle.attr( 'aria-expanded', searchForm.hasClass( 'active' ) );
+				closeSearchForm();
 			}
 		});
 	} );

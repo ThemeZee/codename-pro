@@ -103,8 +103,15 @@ class Codename_Pro_Header_Search {
 		if ( true === $theme_options['header_search'] || is_customize_preview() ) :
 			?>
 
-			<div class="header-search-form">
-				<?php get_search_form(); ?>
+			<div class="header-search-dropdown">
+				<button class="header-search-close">
+					<?php echo codename_get_svg( 'close' ); ?>
+					<span class="screen-reader-text"><?php esc_html_e( 'Close', 'codename-pro' ); ?></span>
+				</button>
+
+				<div class="header-search-form">
+					<?php get_search_form(); ?>
+				</div>
 			</div>
 
 			<?php
