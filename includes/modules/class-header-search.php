@@ -100,7 +100,8 @@ class Codename_Pro_Header_Search {
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
 		// Show header search if activated.
-		if ( true === $theme_options['header_search'] || is_customize_preview() ) : ?>
+		if ( true === $theme_options['header_search'] || is_customize_preview() ) :
+			?>
 
 			<div class="header-search-form">
 				<?php get_search_form(); ?>
