@@ -25,17 +25,7 @@
 		});
 
 		/* Close search form if close button is clicked */
-		searchForm.find( 'header-search-close' ).click( function() {
-			closeSearchForm();
-		});
-
-		/* Do not close search form if click is inside header search element */
-		$('.site').on('click', '.header-search-form, .header-search', function (e) {
-			e.stopPropagation();
-		 });
-
-		/* Close search form if click is outside header search element */
-		$( document ).click( function() {
+		searchForm.find( '.header-search-close' ).click( function() {
 			closeSearchForm();
 		});
 
