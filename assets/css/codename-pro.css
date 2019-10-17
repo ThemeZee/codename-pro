@@ -460,6 +460,10 @@
 	width: 100%;
 }
 
+.header-search-dropdown .header-search-form .search-form .search-field {
+	background: #fff;
+}
+
 .header-search-dropdown .header-search-close {
 	margin: 0 1rem 0 0;
 	padding: 0.5rem;
