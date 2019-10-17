@@ -33,7 +33,10 @@ class Codename_Pro_Header_Search {
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue_script' ) );
 
 		// Add search icon on main navigation menu.
-		add_action( 'codename_header_search', array( __CLASS__, 'add_header_search' ) );
+		add_action( 'codename_after_navigation', array( __CLASS__, 'add_header_search_icon' ) );
+
+		// Add search form on header area.
+		add_action( 'codename_before_header', array( __CLASS__, 'add_header_search_form' ) );
 
 		// Add Header Search checkbox in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'header_search_settings' ) );
@@ -61,11 +64,11 @@ class Codename_Pro_Header_Search {
 	}
 
 	/**
-	 * Add search form to navigation menu
+	 * Add search icon to navigation menu
 	 *
 	 * @return void
 	 */
-	static function add_header_search() {
+	static function add_header_search_icon() {
 
 		// Get Theme Options from Database.
 		$theme_options = Codename_Pro_Customizer::get_theme_options();
@@ -80,10 +83,27 @@ class Codename_Pro_Header_Search {
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'codename-pro' ); ?></span>
 				</a>
 
-				<div class="header-search-form">
-					<?php get_search_form(); ?>
-				</div>
+			</div>
 
+			<?php
+		endif;
+	}
+
+	/**
+	 * Add search form to header area
+	 *
+	 * @return void
+	 */
+	static function add_header_search_form() {
+
+		// Get Theme Options from Database.
+		$theme_options = Codename_Pro_Customizer::get_theme_options();
+
+		// Show header search if activated.
+		if ( true === $theme_options['header_search'] || is_customize_preview() ) : ?>
+
+			<div class="header-search-form">
+				<?php get_search_form(); ?>
 			</div>
 
 			<?php
