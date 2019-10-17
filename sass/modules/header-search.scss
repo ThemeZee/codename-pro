@@ -46,10 +46,16 @@
 .site .header-search-form {
 	display: none;
 	margin: 0;
-	padding: 3rem;
+	padding: 1.5rem;
 	@include background(--header-background-color);
 	border-bottom: 1px solid;
 	@include border-color(--header-border-color);
+}
+
+@media only screen and (min-width: 640px) {
+	.site .header-search-form {
+		padding: 2rem;
+	}
 }
 
 @media only screen and (min-width: 960px) {
@@ -71,5 +77,15 @@
 				}
 			}
 		}
+	}
+
+	.site .header-search-form {
+		padding: 2.5rem;
+	}
+}
+
+@media only screen and (min-width: 1280px) {
+	.site .header-search-form {
+		padding: 3rem;
 	}
 }
