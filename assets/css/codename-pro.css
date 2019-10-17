@@ -513,6 +513,16 @@
 		height: 22px;
 	}
 
+	.vertical-header-layout .header-main .header-search {
+		order: 1;
+		margin: -1.5rem 0 1rem;
+	}
+
+	.vertical-header-layout .header-main .header-search .header-search-icon .icon-search {
+		width: 28px;
+		height: 28px;
+	}
+
 	.header-search-dropdown {
 		padding: 2.5rem;
 	}
