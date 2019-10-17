@@ -14,9 +14,14 @@
 			if ( false === newval ) {
 				$( 'body' ).addClass( 'header-search-hidden' );
 				$( 'body' ).removeClass( 'header-search-enabled' );
+				$( 'body' ).removeClass( 'header-search-and-main-navigation-active' );
 			} else {
 				$( 'body' ).addClass( 'header-search-enabled' );
 				$( 'body' ).removeClass( 'header-search-hidden' );
+
+				if ( $( '.site-header .header-main .primary-navigation' ).length > 0 ) {
+					$( 'body' ).addClass( 'header-search-and-main-navigation-active' );
+				}
 			}
 		} );
 	} );

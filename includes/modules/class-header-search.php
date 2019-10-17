@@ -168,6 +168,11 @@ class Codename_Pro_Header_Search {
 			$classes[] = 'header-search-enabled';
 		}
 
+		// Add class if header search and main navigation menu is present.
+		if ( true === $theme_options['header_search'] && has_nav_menu( 'primary' ) ) {
+			$classes[] = 'header-search-and-main-navigation-active';
+		}
+
 		// Hide Author Bio in Customizer for instant live preview.
 		if ( is_customize_preview() && false === $theme_options['header_search'] ) {
 			$classes[] = 'header-search-hidden';
