@@ -97,7 +97,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 					<?php echo esc_html( $this->label ); ?>
 				</label>
 
-				<input id="<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" type="text" value="<?php echo esc_attr( $this->value() ); ?>">
+				<input id="_customize-input-<?php echo esc_attr( $this->id ); ?>" name="<?php echo esc_attr( $this->id ); ?>" type="text" value="<?php echo esc_attr( $this->value() ); ?>">
 
 				<div class="actions"></div>
 

@@ -65,7 +65,7 @@ class Codename_Pro_License_Key {
 		) );
 
 		$wp_customize->add_control( new Codename_Pro_Customize_License_Control(
-			$wp_customize, 'license_key', array(
+			$wp_customize, 'codename_theme_options[license_key]', array(
 				'label'    => esc_html__( 'License Key', 'codename-pro' ),
 				'section'  => 'codename_section_theme_info',
 				'settings' => 'codename_theme_options[license_key]',
@@ -84,9 +84,15 @@ class Codename_Pro_License_Key {
 			die();
 		}
 
-		$license = trim( sanitize_text_field( $_REQUEST['license_key'] ) );
+		// Get theme options from database.
+		$theme_options = Codename_Pro_Customizer::get_theme_options();
+
+		$license = trim( sanitize_text_field( $_REQUEST['license_key'] ) );	
 
 		if ( '' === $license ) {
+			$theme_options['license_status'] = 'inactive';
+			$theme_options['license_key']    = '';
+			update_option( 'codename_theme_options', $theme_options );
 			die();
 		}
 
@@ -113,9 +119,6 @@ class Codename_Pro_License_Key {
 
 		// Decode the license data.
 		$license_data = json_decode( wp_remote_retrieve_body( $response ) );
-
-		// Get theme options from database.
-		$theme_options = Codename_Pro_Customizer::get_theme_options();
 
 		// Update License Key and Status.
 		$theme_options['license_status'] = $license_data->license;
