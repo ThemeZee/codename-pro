@@ -2,7 +2,7 @@
 /*
 Plugin Name: Codename Pro
 Plugin URI: http://themezee.com/addons/codename-pro/
-Description: Adds additional features like footer widgets, custom colors, custom fonts, custom menus, and Magazine Post widgets to the Codename theme.
+Description: Adds extra theme options and features like footer widgets, color settings, custom fonts and additional navigation menus to the Codename theme.
 Author: ThemeZee
 Author URI: https://themezee.com/
 Version: 1.0
@@ -203,7 +203,7 @@ class Codename_Pro {
 	 */
 	static function plugin_action_links( $actions ) {
 		$settings_link = array(
-			'settings' => sprintf( '<a href="%s">%s</a>', admin_url( 'themes.php?page=codename-pro' ), __( 'Settings', 'codename-pro' ) ),
+			'settings' => sprintf( '<a href="%s">%s</a>', wp_customize_url() . '?autofocus[panel]=codename_options_panel', esc_html__( 'Theme Options', 'codename-pro' ) ),
 		);
 
 		return array_merge( $settings_link, $actions );
