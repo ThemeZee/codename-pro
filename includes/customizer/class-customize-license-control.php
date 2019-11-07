@@ -101,6 +101,8 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 
 				<div class="actions"></div>
 
+				<p class="license-note"><?php printf( __( 'You can find your license keys and manage your active sites on <a href="%s" target="_blank">themezee.com</a>.', 'codename-pro' ), __( 'https://themezee.com/license-keys/', 'codename-pro' ) . '?utm_source=customizer&utm_medium=textlink&utm_campaign=codename-pro&utm_content=license-keys' ); ?></p>
+
 			</div>
 
 			<?php

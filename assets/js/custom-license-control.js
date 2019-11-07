@@ -31,7 +31,7 @@
 
 			// Set up buttons.
 			this.buttonContainer = this.container.find( '.actions' );
-			this.buttonActivate = $( '<button type="button" class="button button-primary activate" title="' + this.l10n.activate + '">' + this.l10n.activate + '</button>' ).prependTo( this.buttonContainer );
+			this.buttonActivate = $( '<button type="button" class="button activate" title="' + this.l10n.activate + '">' + this.l10n.activate + '</button>' ).prependTo( this.buttonContainer );
 			this.buttonDeactivate = $( '<button type="button" class="button deactivate" title="' + this.l10n.deactivate + '">' + this.l10n.deactivate + '</button>' ).prependTo( this.buttonContainer );
 
 			// Display buttons.
