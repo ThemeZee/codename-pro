@@ -55,7 +55,7 @@
 	list-style: none;
 	font-size: 16px;
 	font-size: 1rem;
-	font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Barlow", arial, helvetica, sans-serif;
 	font-family: var(--navi-font);
 	font-weight: normal;
 	font-weight: var(--navi-font-weight);
@@ -146,7 +146,7 @@
 	text-decoration: none;
 	font-size: 15px;
 	font-size: 0.9375rem;
-	font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Barlow", arial, helvetica, sans-serif;
 	font-family: var(--navi-font);
 	font-weight: normal;
 	font-weight: var(--navi-font-weight);
@@ -401,7 +401,7 @@
 	margin-left: auto;
 	font-size: 17px;
 	font-size: 1.0625rem;
-	font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+	font-family: "Barlow", arial, helvetica, sans-serif;
 	font-family: var(--navi-font);
 	font-weight: normal;
 	font-weight: var(--navi-font-weight);
@@ -655,6 +655,7 @@
 	}
 
 	.entry-author .author-avatar {
+		margin-left: 0;
 		margin-right: 1.5rem;
 		margin-bottom: 0;
 		width: 30%;
