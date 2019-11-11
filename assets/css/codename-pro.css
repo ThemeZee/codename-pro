@@ -782,6 +782,7 @@
 }
 
 .footer-widgets .widget .tzwb-posts-list .tzwb-entry-meta,
+.footer-widgets .widget .tzwb-posts-list .tzwb-entry-meta span::after,
 .footer-widgets .widget .tzwb-posts-list .tzwb-entry-meta a:link,
 .footer-widgets .widget .tzwb-posts-list .tzwb-entry-meta a:visited,
 .footer-widgets .widget .tzwb-comments-list .tzwb-comment-date {
