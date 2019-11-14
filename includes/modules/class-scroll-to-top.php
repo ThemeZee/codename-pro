@@ -4,7 +4,7 @@
  *
  * Displays scroll to top button based on theme options
  *
- * @package Codename Pro
+ * @package Harrison Pro
  */
 
 // Exit if accessed directly.
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Scroll to Top Class
  */
-class Codename_Pro_Scroll_To_Top {
+class Harrison_Pro_Scroll_To_Top {
 
 	/**
 	 * Scroll to Top Setup
@@ -24,8 +24,8 @@ class Codename_Pro_Scroll_To_Top {
 	 */
 	static function setup() {
 
-		// Return early if Codename Theme is not active.
-		if ( ! current_theme_supports( 'codename-pro' ) ) {
+		// Return early if Harrison Theme is not active.
+		if ( ! current_theme_supports( 'harrison-pro' ) ) {
 			return;
 		}
 
@@ -44,15 +44,15 @@ class Codename_Pro_Scroll_To_Top {
 	static function enqueue_script() {
 
 		// Get Theme Options from Database.
-		$theme_options = Codename_Pro_Customizer::get_theme_options();
+		$theme_options = Harrison_Pro_Customizer::get_theme_options();
 
 		// Call Credit Link function of theme if credit link is activated.
 		if ( true === $theme_options['scroll_to_top'] ) :
 
-			wp_enqueue_script( 'codename-pro-scroll-to-top', CODENAME_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.js', array( 'jquery' ), CODENAME_PRO_VERSION, true );
+			wp_enqueue_script( 'harrison-pro-scroll-to-top', HARRISON_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.js', array( 'jquery' ), HARRISON_PRO_VERSION, true );
 
 			// Passing Parameters to navigation.js.
-			wp_localize_script( 'codename-pro-scroll-to-top', 'codename_pro_scroll_button', codename_get_svg( 'collapse' ) );
+			wp_localize_script( 'harrison-pro-scroll-to-top', 'harrison_pro_scroll_button', harrison_get_svg( 'collapse' ) );
 
 		endif;
 	}
@@ -65,27 +65,27 @@ class Codename_Pro_Scroll_To_Top {
 	static function scroll_to_top_settings( $wp_customize ) {
 
 		// Add Scroll to Top headline.
-		$wp_customize->add_control( new Codename_Customize_Header_Control(
-			$wp_customize, 'codename_theme_options[scroll_top_title]', array(
-				'label'    => esc_html__( 'Scroll to Top', 'codename-pro' ),
-				'section'  => 'codename_section_footer',
+		$wp_customize->add_control( new Harrison_Customize_Header_Control(
+			$wp_customize, 'harrison_theme_options[scroll_top_title]', array(
+				'label'    => esc_html__( 'Scroll to Top', 'harrison-pro' ),
+				'section'  => 'harrison_section_footer',
 				'settings' => array(),
 				'priority' => 40,
 			)
 		) );
 
 		// Add Scroll to Top setting.
-		$wp_customize->add_setting( 'codename_theme_options[scroll_to_top]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[scroll_to_top]', array(
 			'default'           => false,
 			'type'              => 'option',
 			'transport'         => 'refresh',
-			'sanitize_callback' => 'codename_sanitize_checkbox',
+			'sanitize_callback' => 'harrison_sanitize_checkbox',
 		) );
 
-		$wp_customize->add_control( 'codename_theme_options[scroll_to_top]', array(
-			'label'    => esc_html__( 'Display Scroll to Top Button', 'codename-pro' ),
-			'section'  => 'codename_section_footer',
-			'settings' => 'codename_theme_options[scroll_to_top]',
+		$wp_customize->add_control( 'harrison_theme_options[scroll_to_top]', array(
+			'label'    => esc_html__( 'Display Scroll to Top Button', 'harrison-pro' ),
+			'section'  => 'harrison_section_footer',
+			'settings' => 'harrison_theme_options[scroll_to_top]',
 			'type'     => 'checkbox',
 			'priority' => 50,
 		) );
@@ -93,4 +93,4 @@ class Codename_Pro_Scroll_To_Top {
 }
 
 // Run Class.
-add_action( 'init', array( 'Codename_Pro_Scroll_To_Top', 'setup' ) );
+add_action( 'init', array( 'Harrison_Pro_Scroll_To_Top', 'setup' ) );

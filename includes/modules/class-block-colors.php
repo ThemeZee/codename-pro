@@ -4,7 +4,7 @@
  *
  * Adds block color settings to Customizer and generates color CSS code
  *
- * @package Codename Pro
+ * @package Harrison Pro
  */
 
 // Exit if accessed directly.
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Block Colors Class
  */
-class Codename_Pro_Block_Colors {
+class Harrison_Pro_Block_Colors {
 
 	/**
 	 * Block Colors Setup
@@ -24,13 +24,13 @@ class Codename_Pro_Block_Colors {
 	 */
 	static function setup() {
 
-		// Return early if Codename Theme is not active.
-		if ( ! current_theme_supports( 'codename-pro' ) ) {
+		// Return early if Harrison Theme is not active.
+		if ( ! current_theme_supports( 'harrison-pro' ) ) {
 			return;
 		}
 
 		// Add Custom Color CSS code to custom stylesheet output.
-		add_filter( 'codename_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
+		add_filter( 'harrison_pro_custom_css_stylesheet', array( __CLASS__, 'custom_colors_css' ) );
 
 		// Add Custom Color Settings.
 		add_action( 'customize_register', array( __CLASS__, 'color_settings' ) );
@@ -44,7 +44,7 @@ class Codename_Pro_Block_Colors {
 	 */
 	static function block_color_palette( $color_palette ) {
 		// Get Theme Options from Database.
-		$theme_options = Codename_Pro_Customizer::get_theme_options();
+		$theme_options = Harrison_Pro_Customizer::get_theme_options();
 
 		// Override default block color palette.
 		return array(
@@ -67,10 +67,10 @@ class Codename_Pro_Block_Colors {
 	static function custom_colors_css( $custom_css ) {
 
 		// Get Theme Options from Database.
-		$theme_options = Codename_Pro_Customizer::get_theme_options();
+		$theme_options = Harrison_Pro_Customizer::get_theme_options();
 
 		// Get Default Fonts from settings.
-		$default_options = Codename_Pro_Customizer::get_default_options();
+		$default_options = Harrison_Pro_Customizer::get_default_options();
 
 		// Color Variables.
 		$color_variables = '';
@@ -126,123 +126,123 @@ class Codename_Pro_Block_Colors {
 	static function color_settings( $wp_customize ) {
 
 		// Add Section for Block Colors.
-		$wp_customize->add_section( 'codename_pro_section_block_colors', array(
-			'title'    => esc_html__( 'Block Colors', 'codename-pro' ),
+		$wp_customize->add_section( 'harrison_pro_section_block_colors', array(
+			'title'    => esc_html__( 'Block Colors', 'harrison-pro' ),
 			'priority' => 100,
-			'panel'    => 'codename_options_panel',
+			'panel'    => 'harrison_options_panel',
 		) );
 
 		// Get Default Colors from settings.
-		$default_options = Codename_Pro_Customizer::get_default_options();
+		$default_options = Harrison_Pro_Customizer::get_default_options();
 
 		// Add Primary Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[primary_color]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[primary_color]', array(
 			'default'           => $default_options['primary_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[primary_color]', array(
-				'label'    => esc_html_x( 'Primary', 'Color Option', 'codename-pro' ),
-				'section'  => 'codename_pro_section_block_colors',
-				'settings' => 'codename_theme_options[primary_color]',
+			$wp_customize, 'harrison_theme_options[primary_color]', array(
+				'label'    => esc_html_x( 'Primary', 'Color Option', 'harrison-pro' ),
+				'section'  => 'harrison_pro_section_block_colors',
+				'settings' => 'harrison_theme_options[primary_color]',
 				'priority' => 10,
 			)
 		) );
 
 		// Add Secondary Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[secondary_color]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[secondary_color]', array(
 			'default'           => $default_options['secondary_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[secondary_color]', array(
-				'label'    => esc_html_x( 'Secondary', 'Color Option', 'codename-pro' ),
-				'section'  => 'codename_pro_section_block_colors',
-				'settings' => 'codename_theme_options[secondary_color]',
+			$wp_customize, 'harrison_theme_options[secondary_color]', array(
+				'label'    => esc_html_x( 'Secondary', 'Color Option', 'harrison-pro' ),
+				'section'  => 'harrison_pro_section_block_colors',
+				'settings' => 'harrison_theme_options[secondary_color]',
 				'priority' => 20,
 			)
 		) );
 
 		// Add Accent Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[accent_color]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[accent_color]', array(
 			'default'           => $default_options['accent_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[accent_color]', array(
-				'label'    => esc_html_x( 'Accent', 'Color Option', 'codename-pro' ),
-				'section'  => 'codename_pro_section_block_colors',
-				'settings' => 'codename_theme_options[accent_color]',
+			$wp_customize, 'harrison_theme_options[accent_color]', array(
+				'label'    => esc_html_x( 'Accent', 'Color Option', 'harrison-pro' ),
+				'section'  => 'harrison_pro_section_block_colors',
+				'settings' => 'harrison_theme_options[accent_color]',
 				'priority' => 30,
 			)
 		) );
 
 		// Add Highlight Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[highlight_color]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[highlight_color]', array(
 			'default'           => $default_options['highlight_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[highlight_color]', array(
-				'label'    => esc_html_x( 'Highlight', 'Color Option', 'codename-pro' ),
-				'section'  => 'codename_pro_section_block_colors',
-				'settings' => 'codename_theme_options[highlight_color]',
+			$wp_customize, 'harrison_theme_options[highlight_color]', array(
+				'label'    => esc_html_x( 'Highlight', 'Color Option', 'harrison-pro' ),
+				'section'  => 'harrison_pro_section_block_colors',
+				'settings' => 'harrison_theme_options[highlight_color]',
 				'priority' => 40,
 			)
 		) );
 
 		// Add Light Gray Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[light_gray_color]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[light_gray_color]', array(
 			'default'           => $default_options['light_gray_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[light_gray_color]', array(
-				'label'    => esc_html_x( 'Light Gray', 'Color Option', 'codename-pro' ),
-				'section'  => 'codename_pro_section_block_colors',
-				'settings' => 'codename_theme_options[light_gray_color]',
+			$wp_customize, 'harrison_theme_options[light_gray_color]', array(
+				'label'    => esc_html_x( 'Light Gray', 'Color Option', 'harrison-pro' ),
+				'section'  => 'harrison_pro_section_block_colors',
+				'settings' => 'harrison_theme_options[light_gray_color]',
 				'priority' => 50,
 			)
 		) );
 
 		// Add Gray Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[gray_color]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[gray_color]', array(
 			'default'           => $default_options['gray_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[gray_color]', array(
-				'label'    => esc_html_x( 'Gray', 'Color Option', 'codename-pro' ),
-				'section'  => 'codename_pro_section_block_colors',
-				'settings' => 'codename_theme_options[gray_color]',
+			$wp_customize, 'harrison_theme_options[gray_color]', array(
+				'label'    => esc_html_x( 'Gray', 'Color Option', 'harrison-pro' ),
+				'section'  => 'harrison_pro_section_block_colors',
+				'settings' => 'harrison_theme_options[gray_color]',
 				'priority' => 60,
 			)
 		) );
 
 		// Add Dark Gray Color setting.
-		$wp_customize->add_setting( 'codename_theme_options[dark_gray_color]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[dark_gray_color]', array(
 			'default'           => $default_options['dark_gray_color'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		) );
 		$wp_customize->add_control( new WP_Customize_Color_Control(
-			$wp_customize, 'codename_theme_options[dark_gray_color]', array(
-				'label'    => esc_html_x( 'Dark Gray', 'Color Option', 'codename-pro' ),
-				'section'  => 'codename_pro_section_block_colors',
-				'settings' => 'codename_theme_options[dark_gray_color]',
+			$wp_customize, 'harrison_theme_options[dark_gray_color]', array(
+				'label'    => esc_html_x( 'Dark Gray', 'Color Option', 'harrison-pro' ),
+				'section'  => 'harrison_pro_section_block_colors',
+				'settings' => 'harrison_theme_options[dark_gray_color]',
 				'priority' => 70,
 			)
 		) );
@@ -250,5 +250,5 @@ class Codename_Pro_Block_Colors {
 }
 
 // Run Class.
-add_action( 'init', array( 'Codename_Pro_Block_Colors', 'setup' ) );
-add_filter( 'codename_color_palette', array( 'Codename_Pro_Block_Colors', 'block_color_palette' ) );
+add_action( 'init', array( 'Harrison_Pro_Block_Colors', 'setup' ) );
+add_filter( 'harrison_color_palette', array( 'Harrison_Pro_Block_Colors', 'block_color_palette' ) );

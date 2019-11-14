@@ -30,7 +30,7 @@ gulp.task( 'cleancss', function() {
 
 // RTL CSS
 gulp.task( 'rtlcss', function () {
-	return gulp.src( 'assets/css/codename-pro.css' )
+	return gulp.src( 'assets/css/harrison-pro.css' )
 		.pipe( rtlcss() )
 		.pipe( rename( {
 			suffix: '-rtl'
@@ -42,7 +42,7 @@ gulp.task( 'rtlcss', function () {
 gulp.task( 'sass', function() {
     return gulp.src( 'sass/style.scss' )
         .pipe( sass( { outputStyle: 'expanded' } ).on( 'error', sass.logError ) )
-		.pipe( rename( 'assets/css/codename-pro.css' ) )
+		.pipe( rename( 'assets/css/harrison-pro.css' ) )
 		.pipe( postcss( [ sorting() ] ) )
 		.pipe( replace( '  ', '	' ) )
 		.pipe( replace( '}\n	', '}\n\n	' ) )

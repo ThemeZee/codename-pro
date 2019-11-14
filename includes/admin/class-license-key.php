@@ -2,7 +2,7 @@
 /**
  * License Key
  *
- * @package Codename Pro
+ * @package Harrison Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * License Key Class
  */
-class Codename_Pro_License_Key {
+class Harrison_Pro_License_Key {
 	/**
 	 * Init Function
 	 *
@@ -37,13 +37,13 @@ class Codename_Pro_License_Key {
 	 */
 	static function setup() {
 
-		// Return early if Codename Theme is not active.
-		if ( ! current_theme_supports( 'codename-pro' ) ) {
+		// Return early if Harrison Theme is not active.
+		if ( ! current_theme_supports( 'harrison-pro' ) ) {
 			return;
 		}
 
 		// Include Customizer Control Files.
-		require_once CODENAME_PRO_PLUGIN_DIR . 'includes/customizer/class-customize-license-control.php';
+		require_once HARRISON_PRO_PLUGIN_DIR . 'includes/customizer/class-customize-license-control.php';
 
 		// Add License Settings in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'license_settings' ) );
@@ -57,18 +57,18 @@ class Codename_Pro_License_Key {
 	static function license_settings( $wp_customize ) {
 
 		// Add License Key setting.
-		$wp_customize->add_setting( 'codename_theme_options[license_key]', array(
+		$wp_customize->add_setting( 'harrison_theme_options[license_key]', array(
 			'default'           => '',
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_text_field',
 		) );
 
-		$wp_customize->add_control( new Codename_Pro_Customize_License_Control(
-			$wp_customize, 'codename_theme_options[license_key]', array(
-				'label'    => esc_html__( 'License Key', 'codename-pro' ),
-				'section'  => 'codename_section_theme_info',
-				'settings' => 'codename_theme_options[license_key]',
+		$wp_customize->add_control( new Harrison_Pro_Customize_License_Control(
+			$wp_customize, 'harrison_theme_options[license_key]', array(
+				'label'    => esc_html__( 'License Key', 'harrison-pro' ),
+				'section'  => 'harrison_section_theme_info',
+				'settings' => 'harrison_theme_options[license_key]',
 				'priority' => 30,
 			)
 		) );
@@ -85,14 +85,14 @@ class Codename_Pro_License_Key {
 		}
 
 		// Get theme options from database.
-		$theme_options = Codename_Pro_Customizer::get_theme_options();
+		$theme_options = Harrison_Pro_Customizer::get_theme_options();
 
 		$license = trim( sanitize_text_field( $_REQUEST['license_key'] ) );	
 
 		if ( '' === $license ) {
 			$theme_options['license_status'] = 'inactive';
 			$theme_options['license_key']    = '';
-			update_option( 'codename_theme_options', $theme_options );
+			update_option( 'harrison_theme_options', $theme_options );
 			die();
 		}
 
@@ -100,12 +100,12 @@ class Codename_Pro_License_Key {
 		$api_params = array(
 			'edd_action' => 'activate_license',
 			'license'    => $license,
-			'item_id'    => CODENAME_PRO_PRODUCT_ID,
+			'item_id'    => HARRISON_PRO_PRODUCT_ID,
 			'url'        => home_url(),
 		);
 
 		// Call the custom API.
-		$response = wp_remote_post( CODENAME_PRO_STORE_API_URL, array(
+		$response = wp_remote_post( HARRISON_PRO_STORE_API_URL, array(
 			'timeout'   => 25,
 			'sslverify' => true,
 			'body'      => $api_params,
@@ -123,9 +123,9 @@ class Codename_Pro_License_Key {
 		// Update License Key and Status.
 		$theme_options['license_status'] = $license_data->license;
 		$theme_options['license_key']    = $license;
-		update_option( 'codename_theme_options', $theme_options );
+		update_option( 'harrison_theme_options', $theme_options );
 
-		delete_transient( 'codename_license_check' );
+		delete_transient( 'harrison_license_check' );
 
 		echo $license_data->license;
 
@@ -152,12 +152,12 @@ class Codename_Pro_License_Key {
 		$api_params = array(
 			'edd_action' => 'deactivate_license',
 			'license'    => $license,
-			'item_id'    => CODENAME_PRO_PRODUCT_ID,
+			'item_id'    => HARRISON_PRO_PRODUCT_ID,
 			'url'        => home_url(),
 		);
 
 		// Call the custom API.
-		$response = wp_remote_post( CODENAME_PRO_STORE_API_URL, array(
+		$response = wp_remote_post( HARRISON_PRO_STORE_API_URL, array(
 			'timeout'   => 25,
 			'sslverify' => true,
 			'body'      => $api_params,
@@ -170,13 +170,13 @@ class Codename_Pro_License_Key {
 		}
 
 		// Get theme options from database.
-		$theme_options = Codename_Pro_Customizer::get_theme_options();
+		$theme_options = Harrison_Pro_Customizer::get_theme_options();
 
 		// Update License Status.
 		$theme_options['license_status'] = 'inactive';
-		update_option( 'codename_theme_options', $theme_options );
+		update_option( 'harrison_theme_options', $theme_options );
 
-		delete_transient( 'codename_license_check' );
+		delete_transient( 'harrison_license_check' );
 
 		echo 'inactive';
 
@@ -195,13 +195,13 @@ class Codename_Pro_License_Key {
 			return;
 		}
 
-		$status = get_transient( 'codename_license_check' );
+		$status = get_transient( 'harrison_license_check' );
 
 		// Run the license check a maximum of once per day.
 		if ( false === $status ) {
 
 			// Get theme options from database.
-			$theme_options = Codename_Pro_Customizer::get_theme_options();
+			$theme_options = Harrison_Pro_Customizer::get_theme_options();
 			$license_key   = $theme_options['license_key'];
 
 			if ( '' !== $license_key and 'inactive' !== $theme_options['license_status'] ) {
@@ -210,12 +210,12 @@ class Codename_Pro_License_Key {
 				$api_params = array(
 					'edd_action' => 'check_license',
 					'license'    => $license_key,
-					'item_id'    => CODENAME_PRO_PRODUCT_ID,
+					'item_id'    => HARRISON_PRO_PRODUCT_ID,
 					'url'        => home_url(),
 				);
 
 				// Call the custom API.
-				$response = wp_remote_post( CODENAME_PRO_STORE_API_URL, array(
+				$response = wp_remote_post( HARRISON_PRO_STORE_API_URL, array(
 					'timeout'   => 25,
 					'sslverify' => true,
 					'body'      => $api_params,
@@ -238,10 +238,10 @@ class Codename_Pro_License_Key {
 
 			// Update License Status.
 			$theme_options['license_status'] = $status;
-			update_option( 'codename_theme_options', $theme_options );
+			update_option( 'harrison_theme_options', $theme_options );
 
 			// Cache license check with transient.
-			set_transient( 'codename_license_check', $status, DAY_IN_SECONDS );
+			set_transient( 'harrison_license_check', $status, DAY_IN_SECONDS );
 		}
 
 		return $status;
@@ -249,4 +249,4 @@ class Codename_Pro_License_Key {
 }
 
 // Run Class.
-Codename_Pro_License_Key::init();
+Harrison_Pro_License_Key::init();

@@ -1,17 +1,17 @@
 /*
- * Codename Settings CSS
+ * Harrison Settings CSS
  *
  * CSS Stylesheet for settings page on Appearance -> Pro Version
  *
- * @package Codename Pro
+ * @package Harrison Pro
  */
 
 /* License Settings */
-.codename-pro-settings-wrap {
+.harrison-pro-settings-wrap {
 	margin: 25px 0 0;
 }
 
-.codename-pro-settings-wrap .license-status {
+.harrison-pro-settings-wrap .license-status {
 	display: inline-block;
 	margin: 0 12px 0 0;
 	padding: 4px 8px;
@@ -20,19 +20,19 @@
 	text-transform: uppercase;
 }
 
-.codename-pro-settings-wrap .license-active {
+.harrison-pro-settings-wrap .license-active {
 	background: green;
 }
 
-.codename-pro-settings-wrap .license-invalid,
-.codename-pro-settings-wrap .license-expired {
+.harrison-pro-settings-wrap .license-invalid,
+.harrison-pro-settings-wrap .license-expired {
 	background: red;
 }
 
-.codename-pro-settings-wrap .license-description {
+.harrison-pro-settings-wrap .license-description {
 	margin: 16px 0 0;
 }
 
-.codename-pro-settings-wrap .license-renewal {
+.harrison-pro-settings-wrap .license-renewal {
 	margin: 16px 0 0;
 }

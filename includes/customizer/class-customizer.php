@@ -4,7 +4,7 @@
  *
  * Setup the Customizer and theme options for the Pro plugin
  *
- * @package Codename Pro
+ * @package Harrison Pro
  */
 
 // Exit if accessed directly.
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Customizer Class
  */
-class Codename_Pro_Customizer {
+class Harrison_Pro_Customizer {
 
 	/**
 	 * Customizer Setup
@@ -24,8 +24,8 @@ class Codename_Pro_Customizer {
 	 */
 	static function setup() {
 
-		// Return early if Codename Theme is not active.
-		if ( ! current_theme_supports( 'codename-pro' ) ) {
+		// Return early if Harrison Theme is not active.
+		if ( ! current_theme_supports( 'harrison-pro' ) ) {
 			return;
 		}
 
@@ -34,7 +34,7 @@ class Codename_Pro_Customizer {
 		add_action( 'customize_controls_print_styles', array( __CLASS__, 'customize_preview_css' ) );
 
 		// Remove Upgrade section.
-		remove_action( 'customize_register', 'codename_customize_register_upgrade_settings' );
+		remove_action( 'customize_register', 'harrison_customize_register_upgrade_settings' );
 	}
 
 	/**
@@ -45,7 +45,7 @@ class Codename_Pro_Customizer {
 	static function get_theme_options() {
 
 		// Merge Theme Options Array from Database with Default Options Array.
-		$theme_options = wp_parse_args( get_option( 'codename_theme_options', array() ), self::get_default_options() );
+		$theme_options = wp_parse_args( get_option( 'harrison_theme_options', array() ), self::get_default_options() );
 
 		// Return theme options.
 		return $theme_options;
@@ -100,7 +100,7 @@ class Codename_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'codename-pro-customizer-js', CODENAME_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), CODENAME_PRO_VERSION, true );
+		wp_enqueue_script( 'harrison-pro-customizer-js', HARRISON_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), HARRISON_PRO_VERSION, true );
 	}
 
 	/**
@@ -109,9 +109,9 @@ class Codename_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_css() {
-		wp_enqueue_style( 'codename-pro-customizer-css', CODENAME_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), CODENAME_PRO_VERSION );
+		wp_enqueue_style( 'harrison-pro-customizer-css', HARRISON_PRO_PLUGIN_URL . 'assets/css/customizer.css', array(), HARRISON_PRO_VERSION );
 	}
 }
 
 // Run Class.
-add_action( 'init', array( 'Codename_Pro_Customizer', 'setup' ) );
+add_action( 'init', array( 'Harrison_Pro_Customizer', 'setup' ) );

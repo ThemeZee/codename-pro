@@ -1,5 +1,5 @@
 ===================================
-Codename Pro Changelog
+Harrison Pro Changelog
 ===================================
 
 Version 1.0

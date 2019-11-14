@@ -1,7 +1,7 @@
 /**
  * Header Search JS
  *
- * @package Codename Pro
+ * @package Harrison Pro
  */
 
 ( function( $ ) {

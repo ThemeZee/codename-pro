@@ -2,7 +2,7 @@
 /**
  * Social Icons Menus
  *
- * @package Codename Pro
+ * @package Harrison Pro
  */
 
 // Exit if accessed directly.
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Header Bar Class
  */
-class Codename_Pro_Social_Icons {
+class Harrison_Pro_Social_Icons {
 
 	/**
 	 * Class Setup
@@ -22,8 +22,8 @@ class Codename_Pro_Social_Icons {
 	 */
 	static function setup() {
 
-		// Return early if Codename Theme is not active.
-		if ( ! current_theme_supports( 'codename-pro' ) ) {
+		// Return early if Harrison Theme is not active.
+		if ( ! current_theme_supports( 'harrison-pro' ) ) {
 			return;
 		}
 
@@ -63,7 +63,7 @@ class Codename_Pro_Social_Icons {
 
 		// Create SVG markup.
 		$svg  = '<svg class="icon icon-' . esc_attr( $icon ) . '" aria-hidden="true" role="img">';
-		$svg .= ' <use xlink:href="' . CODENAME_PRO_PLUGIN_URL . 'assets/icons/social-icons.svg#icon-' . esc_html( $icon ) . '"></use> ';
+		$svg .= ' <use xlink:href="' . HARRISON_PRO_PLUGIN_URL . 'assets/icons/social-icons.svg#icon-' . esc_html( $icon ) . '"></use> ';
 		$svg .= '</svg>';
 
 		return $svg;
@@ -161,21 +161,21 @@ class Codename_Pro_Social_Icons {
 	 */
 	static function register_nav_menus() {
 
-		// Return early if Codename Theme is not active.
-		if ( ! current_theme_supports( 'codename-pro' ) ) {
+		// Return early if Harrison Theme is not active.
+		if ( ! current_theme_supports( 'harrison-pro' ) ) {
 			return;
 		}
 
 		register_nav_menus( array(
-			'social-header' => esc_html__( 'Social Icons (Header)', 'codename-pro' ),
-			'social-footer' => esc_html__( 'Social Icons (Footer)', 'codename-pro' ),
+			'social-header' => esc_html__( 'Social Icons (Header)', 'harrison-pro' ),
+			'social-footer' => esc_html__( 'Social Icons (Footer)', 'harrison-pro' ),
 		) );
 
 	}
 }
 
 // Run Class.
-add_action( 'init', array( 'Codename_Pro_Social_Icons', 'setup' ) );
+add_action( 'init', array( 'Harrison_Pro_Social_Icons', 'setup' ) );
 
 // Register navigation menus in backend.
-add_action( 'after_setup_theme', array( 'Codename_Pro_Social_Icons', 'register_nav_menus' ), 30 );
+add_action( 'after_setup_theme', array( 'Harrison_Pro_Social_Icons', 'register_nav_menus' ), 30 );

@@ -1,19 +1,19 @@
 {
-  "name": "codename-pro",
+  "name": "harrison-pro",
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "export": "git archive HEAD -9 --prefix codename-pro/ --format=zip > ../../codename-pro.zip",
+    "export": "git archive HEAD -9 --prefix harrison-pro/ --format=zip > ../../harrison-pro.zip",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ThemeZee/codename-pro.git"
+    "url": "git+https://github.com/ThemeZee/harrison-pro.git"
   },
   "author": "Thomas Weichselbaumer <contact@themezee.com> (https://themezee.com)",
   "license": "GPL",
-  "homepage": "https://github.com/ThemeZee/codename-pro.git#readme",
+  "homepage": "https://github.com/ThemeZee/harrison-pro.git#readme",
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "gulp": "^4.0.2",

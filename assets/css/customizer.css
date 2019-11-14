@@ -3,24 +3,24 @@
  *
  * Adjusts styling for theme option controls in the Customizer
  *
- * @package Codename Pro
+ * @package Harrison Pro
  */
 
-#customize-control-codename_theme_options-scroll_top_title {
+#customize-control-harrison_theme_options-scroll_top_title {
 	margin-top: 16px;
 }
 
-#customize-control-codename_theme_options-header_search_title,
-#customize-control-codename_theme_options-scroll_top_title {
+#customize-control-harrison_theme_options-header_search_title,
+#customize-control-harrison_theme_options-scroll_top_title {
 	margin-bottom: 0;
 }
 
-#customize-control-codename_theme_options-author_bio {
+#customize-control-harrison_theme_options-author_bio {
 	margin-bottom: 4px;
 }
 
 /* Custom Font Control */
-.customize-control-codename_pro_custom_font {
+.customize-control-harrison_pro_custom_font {
 	margin-top: 24px;
 }
 
@@ -28,28 +28,28 @@
 	margin-top: 0;
 }
 
-.customize-control-codename_pro_custom_font .actions .button.previous {
+.customize-control-harrison_pro_custom_font .actions .button.previous {
 	margin-right: 4px;
 }
 
-.customize-control-codename_pro_custom_font .actions .button.standard {
+.customize-control-harrison_pro_custom_font .actions .button.standard {
 	float: right;
 }
 
-.customize-control-codename_pro_custom_font select {
+.customize-control-harrison_pro_custom_font select {
 	width: 100%;
 }
 
-.customize-control-codename_pro_custom_font div:hover {
+.customize-control-harrison_pro_custom_font div:hover {
 	cursor: default;
 }
 
-.customize-control-codename_pro_custom_font .actions .button:hover {
+.customize-control-harrison_pro_custom_font .actions .button:hover {
 	cursor: pointer;
 }
 
 /* Typography Checkbox Controls */
-#sub-accordion-section-codename_pro_section_typography .customize-control-checkbox {
+#sub-accordion-section-harrison_pro_section_typography .customize-control-checkbox {
 	margin-bottom: 0;
 }
 
@@ -59,15 +59,15 @@
 }
 
 /* License Control */
-.customize-control-codename_pro_license_key {
+.customize-control-harrison_pro_license_key {
 	margin-bottom: 36px;
 }
 
-.customize-control-codename_pro_license_key label {
+.customize-control-harrison_pro_license_key label {
 	margin-top: 16px;
 }
 
-.customize-control-codename_pro_license_key .license-status span {
+.customize-control-harrison_pro_license_key .license-status span {
 	display: inline-block;
 	margin: 0 0 12px;
 	padding: 5px 10px;
@@ -78,19 +78,19 @@
 	text-transform: uppercase;
 }
 
-.customize-control-codename_pro_license_key .license-status .inactive {
+.customize-control-harrison_pro_license_key .license-status .inactive {
 	background: #444;
 }
 
-.customize-control-codename_pro_license_key .license-status .valid {
+.customize-control-harrison_pro_license_key .license-status .valid {
 	background: #008000;
 }
 
-.customize-control-codename_pro_license_key .license-status .invalid,
-.customize-control-codename_pro_license_key .license-status .expired {
+.customize-control-harrison_pro_license_key .license-status .invalid,
+.customize-control-harrison_pro_license_key .license-status .expired {
 	background: #b22222;
 }
 
-.customize-control-codename_pro_license_key .license-note {
+.customize-control-harrison_pro_license_key .license-note {
 	margin: 2em 0 0;
 }
