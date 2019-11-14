@@ -100,7 +100,7 @@ class Harrison_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'harrison-pro-customizer-js', HARRISON_PRO_PLUGIN_URL . 'assets/js/customizer.js', array( 'customize-preview' ), HARRISON_PRO_VERSION, true );
+		wp_enqueue_script( 'harrison-pro-customize-preview', HARRISON_PRO_PLUGIN_URL . 'assets/js/customize-preview.min.js', array( 'customize-preview' ), '20191114', true );
 	}
 
 	/**

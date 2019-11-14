@@ -1,5 +1,5 @@
 /**
- * Customizer JS
+ * Customizer Preview JS
  *
  * Reloads changes on Theme Customizer Preview asynchronously for better usability
  *

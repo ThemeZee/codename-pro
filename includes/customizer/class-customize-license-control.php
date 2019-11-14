@@ -74,7 +74,7 @@ if ( class_exists( 'WP_Customize_Control' ) ) :
 		 */
 		public function enqueue() {
 			// Register and Enqueue Custom License JS Constructor.
-			wp_enqueue_script( 'harrison-pro-custom-license-control', HARRISON_PRO_PLUGIN_URL . 'assets/js/custom-license-control.js', array( 'customize-controls' ), HARRISON_PRO_VERSION, true );
+			wp_enqueue_script( 'harrison-pro-custom-license-control', HARRISON_PRO_PLUGIN_URL . 'assets/js/custom-license-control.min.js', array( 'customize-controls' ), '20191114', true );
 		}
 
 		/**
