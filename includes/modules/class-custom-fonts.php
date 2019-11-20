@@ -42,6 +42,10 @@ class Harrison_Pro_Custom_Fonts {
 
 		// Add Font Settings in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'font_settings' ) );
+
+		// Remove default theme fonts if they are not used.
+		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'remove_default_theme_fonts' ), 2 );
+		add_action( 'enqueue_block_editor_assets', array( __CLASS__, 'remove_default_theme_fonts' ), 2 );
 	}
 
 	/**
@@ -342,6 +346,18 @@ class Harrison_Pro_Custom_Fonts {
 		);
 
 		return $selected_fonts;
+	}
+
+	/**
+	 * Remove default theme fonts.
+	 */
+	static function remove_default_theme_fonts() {
+		$selected_fonts = self::get_selected_fonts();
+
+		// Remove default Barlow font if not needed.
+		if ( ! in_array( 'Barlow', $selected_fonts ) ) {
+			wp_dequeue_style( 'harrison-theme-fonts' );
+		}
 	}
 
 	/**
