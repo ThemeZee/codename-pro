@@ -2,7 +2,7 @@
 /*
 Plugin Name: Harrison Pro
 Plugin URI: http://themezee.com/addons/harrison-pro/
-Description: Adds extra theme options and features like footer widgets, color settings, custom fonts and additional navigation menus to the Harrison theme.
+Description: Harrison Pro is an add-on plugin for Harrison including additional customization options for colors and typography as well as extra features like navigation menus, social icons and footer widgets.
 Author: ThemeZee
 Author URI: https://themezee.com/
 Version: 1.0
