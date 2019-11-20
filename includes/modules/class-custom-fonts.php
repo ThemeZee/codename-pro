@@ -327,9 +327,9 @@ class Harrison_Pro_Custom_Fonts {
 	}
 
 	/**
-	 * Register support for GT Typography plugin.
+	 * Retrieve selected fonts from Customizer options.
 	 */
-	static function add_typography_theme_support() {
+	static function get_selected_fonts() {
 
 		// Get theme options from database.
 		$theme_options = Harrison_Pro_Customizer::get_theme_options();
@@ -341,8 +341,15 @@ class Harrison_Pro_Custom_Fonts {
 			$theme_options['navi_font'],
 		);
 
+		return $selected_fonts;
+	}
+
+	/**
+	 * Register support for GT Typography plugin.
+	 */
+	static function add_typography_theme_support() {
 		add_theme_support( 'gt-typography', array(
-			'selected_fonts' => $selected_fonts,
+			'selected_fonts' => self::get_selected_fonts(),
 		) );
 	}
 
