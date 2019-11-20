@@ -63,7 +63,7 @@ class Harrison_Pro {
 		define( 'HARRISON_PRO_VERSION', '1.0' );
 
 		// Define Plugin Name.
-		define( 'HARRISON_PRO_PRODUCT_ID', 171494 );
+		define( 'HARRISON_PRO_PRODUCT_ID', 214389 );
 
 		// Define Update API URL.
 		define( 'HARRISON_PRO_STORE_API_URL', 'https://themezee.com' );
