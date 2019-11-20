@@ -6,6 +6,7 @@ var autoprefixer = require( 'autoprefixer' );
 var rename       = require( 'gulp-rename' );
 var replace      = require( 'gulp-replace' );
 var uglify       = require( 'gulp-uglify' );
+var rtlcss       = require( 'gulp-rtlcss' );
 var sass         = require( 'gulp-sass' );
 var postcss      = require( 'gulp-postcss' );
 var sorting      = require( 'postcss-sorting' );
