@@ -55,7 +55,7 @@ class Harrison_Pro_Social_Icons {
 	 * @param string $icon SVG icon id.
 	 * @return string $svg SVG markup.
 	 */
-	function get_social_svg( $icon = null ) {
+	static function get_social_svg( $icon = null ) {
 		// Return early if no icon was defined.
 		if ( empty( $icon ) ) {
 			return;
@@ -78,7 +78,7 @@ class Harrison_Pro_Social_Icons {
 	 * @param  array   $args        wp_nav_menu() arguments.
 	 * @return string  $item_output The menu item output with social icon.
 	 */
-	function social_icons_menu_walker( $item_output, $item, $depth, $args ) {
+	static function social_icons_menu_walker( $item_output, $item, $depth, $args ) {
 
 		// Get supported social icons.
 		$social_icons = self::supported_social_icons();
@@ -102,7 +102,7 @@ class Harrison_Pro_Social_Icons {
 	 *
 	 * @return array $social_links_icons
 	 */
-	function supported_social_icons() {
+	static function supported_social_icons() {
 		// Supported social links icons.
 		$supported_social_icons = array(
 			'500px.com'       => '500px',

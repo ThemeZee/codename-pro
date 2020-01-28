@@ -2,6 +2,8 @@
 Harrison Pro Changelog
 ===================================
 
-Version 1.0
------------------------------------
-Initial Version
+= 1.0.1 - 2020-01-28 =
+* fixed non-static method PHP warnings for social icons menu
+
+= 1.0 - 2019-11-20 =
+First Release
