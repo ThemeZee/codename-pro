@@ -39,3 +39,11 @@ Please see our [Harrison Theme Documentation](https://themezee.com/docs/harrison
 
 = How do I get updates? =
 Please go to *Appearance -> Customize -> Theme Options -> Theme Info* and enter your license key in order to receive updates.
+
+== Ressources ==
+
+The Harrison Pro plugin includes the following third-party resources:
+
+Font Awesome (for our social icons subset) - https://github.com/FortAwesome/Font-Awesome
+License: Distributed under the terms of the CC BY 4.0 License (https://creativecommons.org/licenses/by/4.0/)
+Copyright: Fonticons, Inc, https://fontawesome.com/
