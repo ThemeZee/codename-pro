@@ -286,7 +286,7 @@ class Harrison_Pro_Custom_Fonts {
 
 		// Add Navi Font Weight setting.
 		$wp_customize->add_setting( 'harrison_theme_options[navi_is_bold]', array(
-			'default'           => $default['navi_is_bold'],
+			'default'           => $default_options['navi_is_bold'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'harrison_sanitize_checkbox',
@@ -302,7 +302,7 @@ class Harrison_Pro_Custom_Fonts {
 
 		// Add Navi Uppercase setting.
 		$wp_customize->add_setting( 'harrison_theme_options[navi_is_uppercase]', array(
-			'default'           => $default['navi_is_uppercase'],
+			'default'           => $default_options['navi_is_uppercase'],
 			'type'              => 'option',
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'harrison_sanitize_checkbox',
