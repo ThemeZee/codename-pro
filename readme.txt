@@ -1,8 +1,8 @@
 === Harrison Pro ===
 Plugin URL: https://themezee.com/addons/harrison-pro/
-Tags: harrison, block colors, theme colors, typography options, header search, author bio, custom menus, scroll-to-top button, footer widgets
+Tags: theme colors, typography options, header search, author bio, custom menus, scroll-to-top button, footer widgets
 Requires at least: 5.2
-Tested up to: 5.3
+Tested up to: 5.6
 
 License: GPLv2 or later
 
@@ -13,7 +13,6 @@ Adds additional features and customization options to the Harrison theme.
 The *Harrison Pro* plugin adds additional features to the Harrison theme.
 
 = Features =
-* Block Color Settings
 * Theme Color Settings
 * Typography Options
 * Top & Footer Navigation
@@ -38,7 +37,7 @@ Please also see our [Plugin Installation Tutorial](https://themezee.com/docs/ins
 Please see our [Harrison Theme Documentation](https://themezee.com/docs/harrison-documentation/ "Harrison Theme Documentation").
 
 = How do I get updates? =
-Please go to *Appearance -> Customize -> Theme Options -> Theme Info* and enter your license key in order to receive updates.
+Please go to *Appearance -> Customize -> Theme Options -> Pro Version* and enter your license key in order to receive updates.
 
 == Ressources ==
 

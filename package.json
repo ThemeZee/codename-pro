@@ -12,7 +12,7 @@
     "url": "git+https://github.com/ThemeZee/harrison-pro.git"
   },
   "author": "Thomas Weichselbaumer <contact@themezee.com> (https://themezee.com)",
-  "license": "GPL",
+  "license": "GPL-2.0-or-later",
   "homepage": "https://github.com/ThemeZee/harrison-pro.git#readme",
   "devDependencies": {
     "autoprefixer": "^9.6.1",

@@ -364,8 +364,10 @@ class Harrison_Pro_Custom_Fonts {
 	 * Register support for GT Typography plugin.
 	 */
 	static function add_typography_theme_support() {
+		$selected_fonts = self::get_selected_fonts();
+
 		add_theme_support( 'gt-typography', array(
-			'selected_fonts' => self::get_selected_fonts(),
+			'selected_fonts' => $selected_fonts,
 		) );
 	}
 
