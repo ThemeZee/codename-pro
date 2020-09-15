@@ -56,7 +56,7 @@ class Harrison_Pro_Header_Search {
 		$theme_options = Harrison_Pro_Customizer::get_theme_options();
 
 		// Embed header search JS if enabled.
-		if ( true === $theme_options['header_search'] || is_customize_preview() ) :
+		if ( ( true === $theme_options['header_search'] || is_customize_preview() ) && ! self::is_amp() ) :
 
 			wp_enqueue_script( 'harrison-pro-header-search', HARRISON_PRO_PLUGIN_URL . 'assets/js/header-search.js', array( 'jquery' ), HARRISON_PRO_VERSION, true );
 
@@ -78,7 +78,7 @@ class Harrison_Pro_Header_Search {
 
 			<div class="header-search">
 
-				<button class="header-search-icon" aria-controls="header-search" aria-expanded="false">
+				<button class="header-search-icon" aria-controls="header-search" aria-expanded="false" <?php self::amp_search_toggle(); ?>>
 					<?php echo harrison_get_svg( 'search' ); ?>
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'harrison-pro' ); ?></span>
 				</button>
@@ -103,8 +103,8 @@ class Harrison_Pro_Header_Search {
 		if ( true === $theme_options['header_search'] || is_customize_preview() ) :
 			?>
 
-			<div class="header-search-dropdown">
-				<button class="header-search-close">
+			<div class="header-search-dropdown" <?php self::amp_search_is_toggled(); ?>>
+				<button class="header-search-close" aria-expanded="true" <?php self::amp_search_toggle(); ?>>
 					<?php echo harrison_get_svg( 'close' ); ?>
 					<span class="screen-reader-text"><?php esc_html_e( 'Close', 'harrison-pro' ); ?></span>
 				</button>
@@ -179,6 +179,32 @@ class Harrison_Pro_Header_Search {
 		}
 
 		return $classes;
+	}
+
+	/**
+	 * Checks if AMP page is rendered.
+	 */
+	static function is_amp() {
+		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
+	}
+
+	/**
+	 * Adds amp support for search toggle.
+	 */
+	static function amp_search_toggle() {
+		if ( self::is_amp() ) {
+			echo "[aria-expanded]=\"headerSearchExpanded? 'true' : 'false'\" ";
+			echo 'on="tap:AMP.setState({headerSearchExpanded: !headerSearchExpanded})"';
+		}
+	}
+
+	/**
+	 * Adds amp support for search form.
+	 */
+	static function amp_search_is_toggled() {
+		if ( self::is_amp() ) {
+			echo "[class]=\"'header-search-dropdown' + ( headerSearchExpanded ? ' toggled-on' : '' )\"";
+		}
 	}
 }
 

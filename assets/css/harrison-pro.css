@@ -454,7 +454,7 @@
 	border-color: var(--header-border-color);
 }
 
-.header-search-dropdown.active {
+.header-search-dropdown.active, .header-search-dropdown.toggled-on {
 	display: flex;
 }
 

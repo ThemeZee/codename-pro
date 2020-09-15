@@ -59,7 +59,8 @@
 	border-bottom: 1px solid;
 	@include border-color(--header-border-color);
 
-	&.active {
+	&.active,
+	&.toggled-on {
 		display: flex;
 	}
 
