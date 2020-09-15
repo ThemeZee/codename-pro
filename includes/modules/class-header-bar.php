@@ -66,7 +66,7 @@ class Harrison_Pro_Header_Bar {
 					if ( has_nav_menu( 'secondary' ) ) :
 						?>
 
-						<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false">
+						<button class="secondary-menu-toggle menu-toggle" aria-controls="secondary-menu" aria-expanded="false" <?php self::amp_menu_toggle(); ?>>
 							<?php
 							echo harrison_get_svg( 'ellipsis' );
 							echo harrison_get_svg( 'close' );
@@ -76,7 +76,7 @@ class Harrison_Pro_Header_Bar {
 
 						<div class="secondary-navigation">
 
-							<nav class="top-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Secondary Menu', 'harrison-pro' ); ?>">
+							<nav class="top-navigation" role="navigation" <?php self::amp_menu_is_toggled(); ?> aria-label="<?php esc_attr_e( 'Secondary Menu', 'harrison-pro' ); ?>">
 
 								<?php
 								wp_nav_menu(
@@ -118,7 +118,25 @@ class Harrison_Pro_Header_Bar {
 		register_nav_menus( array(
 			'secondary' => esc_html__( 'Top Navigation', 'harrison-pro' ),
 		) );
+	}
 
+	/**
+	 * Adds amp support for menu toggle.
+	 */
+	static function amp_menu_toggle() {
+		if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
+			echo "[aria-expanded]=\"secondaryMenuExpanded? 'true' : 'false'\" ";
+			echo 'on="tap:AMP.setState({secondaryMenuExpanded: !secondaryMenuExpanded})"';
+		}
+	}
+
+	/**
+	 * Adds amp support for mobile dropdown navigation menu.
+	 */
+	static function amp_menu_is_toggled() {
+		if ( function_exists( 'is_amp_endpoint' ) && is_amp_endpoint() ) {
+			echo "[class]=\"'top-navigation' + ( secondaryMenuExpanded ? ' toggled-on' : '' )\"";
+		}
 	}
 }
 

@@ -83,6 +83,7 @@
 	@include background(--header-background-color);
 }
 
+.is-amp-page .top-navigation ul ul,
 .top-navigation ul ul.toggled-on {
 	display: block;
 }
