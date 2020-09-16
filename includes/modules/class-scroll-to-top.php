@@ -47,7 +47,7 @@ class Harrison_Pro_Scroll_To_Top {
 		$theme_options = Harrison_Pro_Customizer::get_theme_options();
 
 		// Call Credit Link function of theme if credit link is activated.
-		if ( true === $theme_options['scroll_to_top'] ) :
+		if ( true === $theme_options['scroll_to_top'] && ! self::is_amp() ) :
 
 			wp_enqueue_script( 'harrison-pro-scroll-to-top', HARRISON_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.js', array( 'jquery' ), HARRISON_PRO_VERSION, true );
 
@@ -89,6 +89,13 @@ class Harrison_Pro_Scroll_To_Top {
 			'type'     => 'checkbox',
 			'priority' => 50,
 		) );
+	}
+
+	/**
+	 * Checks if AMP page is rendered.
+	 */
+	static function is_amp() {
+		return function_exists( 'is_amp_endpoint' ) && is_amp_endpoint();
 	}
 }
 
