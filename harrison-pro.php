@@ -5,7 +5,7 @@ Plugin URI: http://themezee.com/addons/harrison-pro/
 Description: Harrison Pro is an add-on plugin for Harrison including additional customization options for colors and typography as well as extra features like navigation menus, social icons and footer widgets.
 Author: ThemeZee
 Author URI: https://themezee.com/
-Version: 1.0.2
+Version: 1.1
 Text Domain: harrison-pro
 Domain Path: /languages/
 License: GNU General Public License v2 or later
@@ -60,7 +60,7 @@ class Harrison_Pro {
 		define( 'HARRISON_PRO_NAME', 'Harrison Pro' );
 
 		// Define Version Number.
-		define( 'HARRISON_PRO_VERSION', '1.0.2' );
+		define( 'HARRISON_PRO_VERSION', '1.1' );
 
 		// Define Plugin Name.
 		define( 'HARRISON_PRO_PRODUCT_ID', 214389 );
