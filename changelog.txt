@@ -2,6 +2,10 @@
 Harrison Pro Changelog
 ===================================
 
+= 1.1.1 - 2020-10-10 =
+* added AMP dropdown toggles for sub menus
+* improved position and styling of header search
+
 = 1.1 - 2020-09-18 =
 * added support for the official AMP plugin
 
