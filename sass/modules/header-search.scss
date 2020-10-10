@@ -11,7 +11,7 @@
 		order: 4;
 	}
 
-	.header-search {
+	.header-search-button {
 		order: 2;
 		margin-left: auto;
 		@include font-size(17);
@@ -54,57 +54,28 @@
 .header-search-dropdown {
 	display: none;
 	margin: 0;
-	padding: 1.5rem;
-	@include background(--header-background-color);
-	border-bottom: 1px solid;
-	@include border-color(--header-border-color);
-
-	&.active,
-	&.toggled-on {
-		display: flex;
-	}
+	box-sizing: border-box;
+	z-index: 999;
 
 	.header-search-form {
-		width: 100%;
+		display: flex;
+		padding: 1.5rem;
+		border-bottom: 1px solid;
+		@include border-color(--header-border-color);
+		@include background(--header-background-color);
 
-		.search-form .search-field {
-			background: #fff;
-		}
-	}
+		.search-form {
+			flex-grow: 1;
 
-	.header-search-close {
-		margin: 0 1rem 0 0;
-		padding: 0.5rem;
-		@include color(--header-text-color);
-		background: none;
-		border: none;
-
-		&:hover,
-		&:active {
-			cursor: pointer;
-			@include color(--header-text-hover-color);
-		}
-
-		&:focus {
-			outline: thin dotted;
-			@include color(--header-text-color);
-		}
-
-		.icon-close {
-			margin: 0;
-			padding: 0;
-			width: 28px;
-			height: 28px;
-			vertical-align: middle;
-			fill: currentColor;
-			transition: fill 0.15s ease;
+			.search-field {
+				background: #fff;
+			}
 		}
 	}
 }
 
-
 @media only screen and (min-width: 640px) {
-	.header-search-dropdown {
+	.header-search-dropdown .header-search-form {
 		padding: 2rem;
 	}
 }
@@ -115,7 +86,7 @@
 			order: 2;
 		}
 
-		.header-search {
+		.header-search-button {
 			order: 3;
 			margin-left: 1rem;
 			margin-top: -3px;
@@ -131,7 +102,7 @@
 	}
 
 	.vertical-header-layout .header-main {
-		.header-search {
+		.header-search-button {
 			order: 1;
 			margin: -1.5rem 0 1rem;
 
@@ -145,13 +116,13 @@
 		}
 	}
 
-	.header-search-dropdown {
+	.header-search-dropdown .header-search-form {
 		padding: 2.5rem;
 	}
 }
 
 @media only screen and (min-width: 1280px) {
-	.header-search-dropdown {
+	.header-search-dropdown .header-search-form {
 		padding: 3rem;
 	}
 }

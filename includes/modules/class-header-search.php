@@ -36,7 +36,7 @@ class Harrison_Pro_Header_Search {
 		add_action( 'harrison_after_navigation', array( __CLASS__, 'add_header_search_icon' ) );
 
 		// Add search form on header area.
-		add_action( 'harrison_before_header', array( __CLASS__, 'add_header_search_form' ) );
+		add_action( 'harrison_after_header', array( __CLASS__, 'add_header_search_form' ) );
 
 		// Add Header Search checkbox in Customizer.
 		add_action( 'customize_register', array( __CLASS__, 'header_search_settings' ) );
@@ -76,7 +76,7 @@ class Harrison_Pro_Header_Search {
 		// Show header search if activated.
 		if ( true === $theme_options['header_search'] || is_customize_preview() ) : ?>
 
-			<div class="header-search">
+			<div class="header-search-button">
 
 				<button class="header-search-icon" aria-controls="header-search" aria-expanded="false" <?php self::amp_search_toggle(); ?>>
 					<?php echo harrison_get_svg( 'search' ); ?>
@@ -104,13 +104,10 @@ class Harrison_Pro_Header_Search {
 			?>
 
 			<div class="header-search-dropdown" <?php self::amp_search_is_toggled(); ?>>
-				<button class="header-search-close" aria-expanded="true" <?php self::amp_search_toggle(); ?>>
-					<?php echo harrison_get_svg( 'close' ); ?>
-					<span class="screen-reader-text"><?php esc_html_e( 'Close', 'harrison-pro' ); ?></span>
-				</button>
-
-				<div class="header-search-form">
-					<?php get_search_form(); ?>
+				<div class="header-search-main">
+					<div class="header-search-form">
+						<?php get_search_form(); ?>
+					</div>
 				</div>
 			</div>
 
