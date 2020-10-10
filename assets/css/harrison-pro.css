@@ -450,6 +450,14 @@
 	z-index: 999;
 }
 
+.header-search-dropdown.active, .header-search-dropdown.toggled-on {
+	display: flex;
+}
+
+.header-search-dropdown .header-search-main {
+	flex-grow: 1;
+}
+
 .header-search-dropdown .header-search-form {
 	display: flex;
 	padding: 1.5rem;

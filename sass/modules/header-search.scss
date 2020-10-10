@@ -57,6 +57,15 @@
 	box-sizing: border-box;
 	z-index: 999;
 
+	&.active,
+	&.toggled-on {
+		display: flex;
+	}
+
+	.header-search-main {
+		flex-grow: 1;
+	}
+
 	.header-search-form {
 		display: flex;
 		padding: 1.5rem;
