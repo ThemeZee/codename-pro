@@ -45,10 +45,7 @@ class Harrison_Pro_Customizer {
 	static function get_theme_options() {
 
 		// Merge Theme Options Array from Database with Default Options Array.
-		$theme_options = wp_parse_args( get_option( 'harrison_theme_options', array() ), self::get_default_options() );
-
-		// Return theme options.
-		return $theme_options;
+		return wp_parse_args( get_option( 'harrison_theme_options', array() ), self::get_default_options() );
 	}
 
 	/**
@@ -100,7 +97,7 @@ class Harrison_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'harrison-pro-customize-preview', HARRISON_PRO_PLUGIN_URL . 'assets/js/customize-preview.min.js', array( 'customize-preview' ), '20191114', true );
+		wp_enqueue_script( 'harrison-pro-customize-preview', HARRISON_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20191118', true );
 	}
 
 	/**
