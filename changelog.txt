@@ -2,6 +2,10 @@
 Harrison Pro Changelog
 ===================================
 
+= 1.2 - 2021-02-12 =
+* updated Typography options
+* added minified JavaScript files
+
 = 1.1.1 - 2020-10-10 =
 * added AMP dropdown toggles for sub menus
 * improved position and styling of header search
