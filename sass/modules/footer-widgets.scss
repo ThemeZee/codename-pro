@@ -11,7 +11,9 @@
 
 	.widget-title {
 		@include color(--footer-widgets-text-color);
+		@include font-family(--text-font);
 		font-weight: normal;
+		text-transform: none;
 	}
 
 	a:link,

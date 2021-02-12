@@ -701,7 +701,10 @@
 .footer-widgets .widget .widget-title {
 	color: rgba(255, 255, 255, 0.5);
 	color: var(--footer-widgets-text-color);
+	font-family: "Barlow", arial, helvetica, sans-serif;
+	font-family: var(--text-font);
 	font-weight: normal;
+	text-transform: none;
 }
 
 .footer-widgets .widget a:link,
