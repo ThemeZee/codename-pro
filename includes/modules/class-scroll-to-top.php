@@ -49,7 +49,7 @@ class Harrison_Pro_Scroll_To_Top {
 		// Call Credit Link function of theme if credit link is activated.
 		if ( true === $theme_options['scroll_to_top'] && ! self::is_amp() ) :
 
-			wp_enqueue_script( 'harrison-pro-scroll-to-top', HARRISON_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.js', array( 'jquery' ), HARRISON_PRO_VERSION, true );
+			wp_enqueue_script( 'harrison-pro-scroll-to-top', HARRISON_PRO_PLUGIN_URL . 'assets/js/scroll-to-top.min.js', array( 'jquery' ), '20210212', true );
 
 			// Passing Parameters to navigation.js.
 			wp_localize_script( 'harrison-pro-scroll-to-top', 'harrison_pro_scroll_button', harrison_get_svg( 'collapse' ) );
