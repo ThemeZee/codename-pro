@@ -63,6 +63,7 @@ class Harrison_Pro_Customizer {
 			'scroll_to_top'        => false,
 			'primary_color'        => '#c9493b',
 			'secondary_color'      => '#e36355',
+			'tertiary_color'       => '#b03022',
 			'accent_color'         => '#078896',
 			'highlight_color'      => '#5bb021',
 			'light_gray_color'     => '#e4e4e4',
@@ -97,7 +98,7 @@ class Harrison_Pro_Customizer {
 	 * @return void
 	 */
 	static function customize_preview_js() {
-		wp_enqueue_script( 'harrison-pro-customize-preview', HARRISON_PRO_PLUGIN_URL . 'assets/js/customize-preview.min.js', array( 'customize-preview' ), '20210212', true );
+		wp_enqueue_script( 'harrison-pro-customize-preview', HARRISON_PRO_PLUGIN_URL . 'assets/js/customize-preview.js', array( 'customize-preview' ), '20210306', true );
 	}
 
 	/**
