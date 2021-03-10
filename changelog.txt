@@ -2,6 +2,10 @@
 Harrison Pro Changelog
 ===================================
 
+= 1.2.1 - 2021-03-10 =
+* added tertiary block color option
+* fixed debug warning in Scroll to Top script
+
 = 1.2 - 2021-02-12 =
 * updated Typography options
 * added minified JavaScript files
