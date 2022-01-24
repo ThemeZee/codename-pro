@@ -2,6 +2,11 @@
 Harrison Pro Changelog
 ===================================
 
+= 1.2.4 - 2022-01-24 =
+* added Steam and Discord to social icons
+* updated Header Search script to use vanilla js
+* updated Scroll to Top button script to use vanilla js
+
 = 1.2.3 - 2021-08-24 =
 * added spacing for widget areas
 
