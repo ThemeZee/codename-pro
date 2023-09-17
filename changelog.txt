@@ -2,6 +2,9 @@
 Harrison Pro Changelog
 ===================================
 
+= 1.2.7 - 2023-09-17 =
+* updated plugin updater
+
 = 1.2.6 - 2022-11-22 =
 * added Mastodon to social icons menu
 
