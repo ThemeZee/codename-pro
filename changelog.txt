@@ -2,6 +2,9 @@
 Harrison Pro Changelog
 ===================================
 
+= 1.2.8 - 2024-01-24 =
+* added X to social icons menu
+
 = 1.2.7 - 2023-09-17 =
 * updated plugin updater
 
