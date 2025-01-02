@@ -1,8 +1,10 @@
+@use "../_mixins";
+
 .footer-widgets-background {
 	display: flex;
 	padding: 1.5rem 1.5rem 0;
-	@include color(--footer-widgets-text-color);
-	@include background(--footer-widgets-background-color);
+	@include mixins.color(--footer-widgets-text-color);
+	@include mixins.background(--footer-widgets-background-color);
 }
 
 /* Footer Widget Styling */
@@ -10,20 +12,20 @@
 	margin-bottom: 1.5rem;
 
 	.widget-title {
-		@include color(--footer-widgets-text-color);
-		@include font-family(--text-font);
+		@include mixins.color(--footer-widgets-text-color);
+		@include mixins.font-family(--text-font);
 		font-weight: normal;
 		text-transform: none;
 	}
 
 	a:link,
 	a:visited {
-		@include color(--footer-widgets-link-color);
+		@include mixins.color(--footer-widgets-link-color);
 	}
 
 	a:hover,
 	a:active {
-		@include color(--footer-widgets-link-hover-color);
+		@include mixins.color(--footer-widgets-link-hover-color);
 	}
 
 	input[type="text"],
@@ -34,8 +36,8 @@
 	input[type="submit"],
 	textarea {
 		border: 1px solid;
-		@include border-color(--footer-widgets-border-color);
-		@include color(--footer-widgets-link-hover-color);
+		@include mixins.border-color(--footer-widgets-border-color);
+		@include mixins.color(--footer-widgets-link-hover-color);
 	}
 
 	input[type="text"]:focus,
@@ -44,14 +46,14 @@
 	input[type="password"]:focus,
 	input[type="search"]:focus,
 	textarea:focus {
-		@include color(--footer-widgets-text-color);
+		@include mixins.color(--footer-widgets-text-color);
 	}
 
 	button,
 	input[type="button"],
 	input[type="reset"],
 	input[type="submit"] {
-		@include color(--footer-widgets-link-hover-color);
+		@include mixins.color(--footer-widgets-link-hover-color);
 	}
 
 	button:hover,
@@ -66,7 +68,7 @@
 	input[type="button"]:active,
 	input[type="reset"]:active,
 	input[type="submit"]:active {
-		@include color(--footer-widgets-border-color);
+		@include mixins.color(--footer-widgets-border-color);
 	}
 
 	.tzwb-posts-list .tzwb-entry-meta,
@@ -74,12 +76,12 @@
 	.tzwb-posts-list .tzwb-entry-meta a:link,
 	.tzwb-posts-list .tzwb-entry-meta a:visited,
 	.tzwb-comments-list .tzwb-comment-date {
-		@include color(--footer-widgets-link-hover-color);
+		@include mixins.color(--footer-widgets-link-hover-color);
 	}
 
 	.tzwb-posts-list .tzwb-entry-meta a:hover,
 	.tzwb-posts-list .tzwb-entry-meta a:active {
-		@include color(--footer-widgets-text-color);
+		@include mixins.color(--footer-widgets-text-color);
 	}
 }
 

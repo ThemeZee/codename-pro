@@ -1,3 +1,5 @@
+@use "../_mixins";
+
 .social-menu-wrap .social-icons-menu {
 	display: flex;
 	flex-flow: row wrap;
@@ -18,12 +20,12 @@
 	display: block;
 	margin: 0;
 	padding: 0.65rem;
-	@include color(--header-text-color);
+	@include mixins.color(--header-text-color);
 }
 
 .social-menu-wrap .social-icons-menu li a:hover,
 .social-menu-wrap .social-icons-menu li a:active {
-	@include color(--header-text-hover-color);
+	@include mixins.color(--header-text-hover-color);
 	text-decoration: none;
 }
 
@@ -46,12 +48,12 @@
 }
 
 .footer-social-menu-wrap .social-icons-menu li a {
-	@include color(--footer-link-color);
+	@include mixins.color(--footer-link-color);
 }
 
 .footer-social-menu-wrap .social-icons-menu li a:hover,
 .footer-social-menu-wrap .social-icons-menu li a:active {
-	@include color(--footer-link-hover-color);
+	@include mixins.color(--footer-link-hover-color);
 }
 
 @media only screen and (min-width: 960px) {
