@@ -2,6 +2,9 @@
 Harrison Pro Changelog
 ===================================
 
+= 1.2.9 - 2025-01-03 =
+* improved tooling and code styling
+
 = 1.2.8 - 2024-01-24 =
 * added X to social icons menu
 
